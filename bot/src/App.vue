@@ -1,21 +1,35 @@
 <script></script>
 
 <template>
-  <div :style="container">
-    <button>Seguimiento</button>
-    <button>Bot</button>
-    <button>Consejo</button>
+  <div class="content">
+    <span>
+      <button>Seguimiento</button>
+      <button>Bot</button>
+      <button>Consejo</button>
+    </span>
   </div>
 </template>
 
 <style>
-.container {
-  height: 100vh;
-  width: 100vh;
+button {
+  padding: 10px;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 5px;
 }
-img {
-  width: 100vh;
-  height: 100vh;
-  background-size: cover;
+
+button:hover {
+  background: white;
+  color: #333;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
