@@ -26,38 +26,3 @@
   width: 100%;
   position: absolute;
 }
-.card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  width: 50%;
-  margin-top: 25px;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-img.person {
-  width: 250px;
-  border-radius: 16px;
-}
-
-button {
-  padding: 10px;
-  background: none;
-  border: 1px solid white;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-button:hover {
-  background: white;
-  color: #333;
-}
