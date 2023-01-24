@@ -1,9 +1,55 @@
+<script setup>
+const changeColorDS = () => {
+  if (document.getElementById("ds").className === "elements") {
+    document.getElementById("ds").className = "elements-a";
+  } else {
+    document.getElementById("ds").className = "elements";
+  }
+};
+const changeColorBot = () => {
+  if (
+    document.getElementById("bot").className === "elements" &&
+    document.getElementById("ds").className !== "elements-a" &&
+    document.getElementById("advise").className !== "elements-a"
+  ) {
+    document.getElementById("bot").className = "elements-a";
+  } else {
+    document.getElementById("bot").className = "elements";
+  }
+};
+const changeColorAdvise = () => {
+  if (document.getElementById("advise").className === "elements") {
+    document.getElementById("advise").className = "elements-a";
+  } else {
+    document.getElementById("advise").className = "elements";
+  }
+};
+</script>
+
 <template>
   <header>
     <div class="bar">
-      <RouterLink to="/dashboard" class="element1">Panel de control</RouterLink>
-      <RouterLink to="/dashboard" class="element2">Bot</RouterLink>
-      <RouterLink to="/dashboard" class="element3">Consejo</RouterLink>
+      <RouterLink
+        id="ds"
+        @click="changeColorDS()"
+        to="/dashboard"
+        class="elements"
+        >Panel de control</RouterLink
+      >
+      <RouterLink
+        id="bot"
+        @click="changeColorBot()"
+        to="/dashboard"
+        class="elements"
+        >Bot</RouterLink
+      >
+      <RouterLink
+        id="advise"
+        @click="changeColorAdvise()"
+        to="/dashboard"
+        class="elements"
+        >Consejo</RouterLink
+      >
     </div>
   </header>
 </template>
@@ -39,40 +85,14 @@ header {
   height: 65px;
 }
 
-.element1 {
+.elements {
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 20px;
   text-decoration: none;
 }
 
-.element2 {
-  color: white;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  text-decoration: none;
-}
-
-.element3 {
-  color: white;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  text-decoration: none;
-}
-
-.element1:hover {
-  color: #3777e1;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  text-decoration: none;
-}
-.element2:hover {
-  color: #3777e1;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  text-decoration: none;
-}
-.element3:hover {
+.elements-a {
   color: #3777e1;
   font-family: "Inter", sans-serif;
   font-size: 20px;
