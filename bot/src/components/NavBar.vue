@@ -31,9 +31,9 @@ const changeColorAdvise = () => {
     <div class="bar">
       <RouterLink
         id="ds"
-        @click="changeColorDS()"
         to="/dashboard"
         class="elements"
+        @click="changeColorDS()"
         >Panel de control</RouterLink
       >
       <RouterLink
