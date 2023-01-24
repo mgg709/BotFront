@@ -1,8 +1,14 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
 <template>
+  <div class="content">
+    <span>
+      <RouterLink to="/dashboard"
+        ><button class="img-btn">Seguimiento</button></RouterLink
+      >
+      <button class="img-btn"><img class="bot" />Bot</button>
+      <button class="img-btn">Consejo</button>
+    </span>
+  </div>
+
   <RouterView />
 </template>
 
@@ -17,7 +23,7 @@ button.img-btn {
   text-decoration: none;
   padding: 0;
   border-radius: 10px;
-  background: linear-gradient(#2940d3, #001abd 64%);
+  background: linear-gradient(#3777e1, #003b9c);
   width: 100px;
   height: 100px;
   cursor: pointer;
