@@ -2,10 +2,12 @@
   <div class="content">
     <span>
       <RouterLink to="/dashboard"
-        ><button class="img-btn">Seguimiento</button></RouterLink
+        ><button class="img-btn">
+          <img class="seguimiento" />Panel de control
+        </button></RouterLink
       >
       <button class="img-btn"><img class="bot" />Bot</button>
-      <button class="img-btn">Consejo</button>
+      <button class="img-btn"><img class="consejo" />Consejo</button>
     </span>
   </div>
 
@@ -33,6 +35,9 @@ button.img-btn {
   transition: 0.5s, color 0.1s;
   -webkit-transition: 0.5s, color 0.1s;
   -moz-transition: 0.5s, color 0.1s;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
 }
 button.img-btn:hover {
   text-decoration: none;
@@ -45,34 +50,38 @@ button.img-btn:hover {
   margin: 4em;
   border: none;
   box-shadow: 0px 0px 5px black;
-  transform: scale3d(1.2, 1.2, 0.3);
-  -webkit-transform: scale3d(1.2, 1.2, 0.3);
-  -moz-transform: scale3d(1.2, 1.2, 0.3);
+  transform: scale3d(1.1, 1.1, 0.3);
+  -webkit-transform: scale3d(1.1, 1.1, 0.3);
+  -moz-transform: scale3d(1.1, 1.1, 0.3);
 }
 
 button.img-btn img.bot {
-  content: url("src/assets/robot-only.png");
+  content: url("src/assets/robot.png");
   padding: 8px;
 }
 
 button.img-btn:hover img.bot {
-  content: url("src/assets/robot-only.png");
+  content: url("src/assets/robot-hover.png");
   padding: 8px;
 }
 
 button.img-btn img.consejo {
-  content: url("src/assets/robot.png");
+  content: url("src/assets/consejo.png");
+  padding: 8px;
 }
 
 button.img-btn:hover img.consejo {
-  content: url("src/assets/robot-hover.png");
+  content: url("src/assets/consejo-hover.png");
+  padding: 8px;
 }
 
 button.img-btn img.seguimiento {
-  content: url("src/assets/robot.png");
+  content: url("src/assets/dashboard.png");
+  padding: 8px;
 }
 
 button.img-btn:hover img.seguimiento {
-  content: url("src/assets/robot-hover.png");
+  content: url("src/assets/dashboard-hover.png");
+  padding: 8px;
 }
 </style>

@@ -12,6 +12,7 @@
 header {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,6 +24,7 @@ header {
   box-shadow: 0 3px 10px #000;
   background-color: #232323;
 }
+
 .bar {
   display: flex;
   margin-left: 150px;
@@ -39,17 +41,41 @@ header {
 
 .element1 {
   color: white;
-
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
   text-decoration: none;
 }
 
 .element2 {
   color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
   text-decoration: none;
 }
 
 .element3 {
   color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.element1:hover {
+  color: #3777e1;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+.element2:hover {
+  color: #3777e1;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+.element3:hover {
+  color: #3777e1;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
   text-decoration: none;
 }
 </style>
