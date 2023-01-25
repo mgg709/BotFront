@@ -1,14 +1,13 @@
 <template>
+  <div class="titulo"></div>
   <div class="content">
-    <span>
-      <RouterLink to="/dashboard"
-        ><button class="img-btn">
-          <img class="seguimiento" />Panel de control
-        </button></RouterLink
-      >
-      <button class="img-btn"><img class="bot" />Bot</button>
-      <button class="img-btn"><img class="consejo" />Consejo</button>
-    </span>
+    <RouterLink to="/dashboard"
+      ><button class="img-btn">
+        <img class="seguimiento" />Panel de control
+      </button></RouterLink
+    >
+    <button class="img-btn"><img class="bot" />Bot</button>
+    <button class="img-btn"><img class="consejo" />Consejo</button>
   </div>
 
   <RouterView />
@@ -17,43 +16,43 @@
 <style>
 .content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 button.img-btn {
+  box-sizing: border-box;
   text-decoration: none;
   padding: 0;
   border-radius: 10px;
   background: linear-gradient(#3777e1, #003b9c);
+  margin: 0;
   width: 100px;
   height: 100px;
   cursor: pointer;
-  margin: 4em;
   border: none;
   box-shadow: 0px 0px 5px black;
-  transition: 0.5s, color 0.1s;
-  -webkit-transition: 0.5s, color 0.1s;
-  -moz-transition: 0.5s, color 0.1s;
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: 800;
+  transition: 0.5s, color 0.1s;
+  -webkit-transition: 0.5s, color 0.1s;
+  -moz-transition: 0.5s, color 0.1s;
 }
 button.img-btn:hover {
   text-decoration: none;
   padding: 0;
   border-radius: 10px;
   background: linear-gradient(#ffffff, #a2a2a2);
-  width: 100px;
-  height: 100px;
   cursor: pointer;
-  margin: 4em;
-  border: none;
+  border: 0;
   box-shadow: 0px 0px 5px black;
-  transform: scale3d(1.1, 1.1, 0.3);
-  -webkit-transform: scale3d(1.1, 1.1, 0.3);
-  -moz-transform: scale3d(1.1, 1.1, 0.3);
+  transform: translatey(-20px);
+  -webkit-transform: translatey(-20px);
+  -moz-transform: translatey(-20px);
 }
 
 button.img-btn img.bot {

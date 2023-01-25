@@ -1,53 +1,13 @@
-<script setup>
-const changeColorDS = () => {
-  if (document.getElementById("ds").className === "elements") {
-    document.getElementById("ds").className = "elements-a";
-  } else {
-    document.getElementById("ds").className = "elements";
-  }
-};
-const changeColorBot = () => {
-  if (
-    document.getElementById("bot").className === "elements" &&
-    document.getElementById("ds").className !== "elements-a" &&
-    document.getElementById("advise").className !== "elements-a"
-  ) {
-    document.getElementById("bot").className = "elements-a";
-  } else {
-    document.getElementById("bot").className = "elements";
-  }
-};
-const changeColorAdvise = () => {
-  if (document.getElementById("advise").className === "elements") {
-    document.getElementById("advise").className = "elements-a";
-  } else {
-    document.getElementById("advise").className = "elements";
-  }
-};
-</script>
+<script setup></script>
 
 <template>
   <header>
     <div class="bar">
-      <RouterLink
-        id="ds"
-        to="/dashboard"
-        class="elements"
-        @click="changeColorDS()"
+      <RouterLink id="ds" to="/dashboard" class="elements"
         >Panel de control</RouterLink
       >
-      <RouterLink
-        id="bot"
-        @click="changeColorBot()"
-        to="/dashboard"
-        class="elements"
-        >Bot</RouterLink
-      >
-      <RouterLink
-        id="advise"
-        @click="changeColorAdvise()"
-        to="/dashboard"
-        class="elements"
+      <RouterLink id="bot" to="/dashboard" class="elements">Bot</RouterLink>
+      <RouterLink id="advise" to="/dashboard" class="elements"
         >Consejo</RouterLink
       >
     </div>
