@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <header>
+  <header class="cabecera">
     <div class="bar">
       <RouterLink id="ds" to="/dashboard" class="elements"
         >Panel de control</RouterLink
@@ -15,7 +15,7 @@
 </template>
 
 <style>
-header {
+.cabecera {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  position: fixed;
+  position: sticky;
   width: 70%;
   max-width: 100%;
   max-height: auto;

@@ -3,7 +3,6 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   font-weight: normal;
 }
 
@@ -14,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
 
 .footer {
@@ -24,4 +24,9 @@
 .footer img {
   width: 100vw;
   position: static;
+}
+
+.space {
+  top: 0;
+  height: 65px;
 }

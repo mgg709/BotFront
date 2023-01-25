@@ -1,5 +1,4 @@
 <template>
-  <div class="titulo"></div>
   <div class="content">
     <RouterLink to="/dashboard"
       ><button class="img-btn">
@@ -17,8 +16,9 @@
 .content {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   justify-content: space-evenly;
 }
 
