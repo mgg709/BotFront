@@ -24,6 +24,7 @@ import CardDS from "../components/CardDS.vue";
 .ajuste {
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 .content {
   display: flex;
