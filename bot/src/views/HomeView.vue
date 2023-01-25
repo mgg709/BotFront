@@ -38,6 +38,7 @@ button.img-btn {
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 20px;
+  font-weight: 800;
 }
 button.img-btn:hover {
   text-decoration: none;
