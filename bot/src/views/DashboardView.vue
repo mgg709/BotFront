@@ -1,12 +1,13 @@
 <script setup>
 import NavBar from "../components/NavBar.vue";
 import CardDS from "../components/CardDS.vue";
+import LateralMenu from "../components/LateralMenu.vue";
 </script>
 <template>
   <NavBar class="ajuste"></NavBar>
+  <LateralMenu></LateralMenu>
   <section class="content">
     <div class="title">
-      <img class="menu" src="src/assets/burguer-menu.svg" />
       <span>CARTERA LOREM</span>
     </div>
     <div class="datos">
@@ -16,6 +17,7 @@ import CardDS from "../components/CardDS.vue";
       <CardDS></CardDS>
       <CardDS></CardDS>
       <CardDS></CardDS>
+      <button class="add">AÑADIR</button>
     </div>
   </section>
 </template>
@@ -29,12 +31,13 @@ import CardDS from "../components/CardDS.vue";
 .content {
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  position: absolute;
+  position: relative;
   top: 0;
-  padding-top: 90px;
+  padding-top: 110px;
   width: 100vw;
+  height: 100vh;
   max-width: 1600px;
 }
 .title {
@@ -46,14 +49,10 @@ import CardDS from "../components/CardDS.vue";
   font-size: 30px;
   font-weight: 700;
   align-self: flex-start;
-  padding-left: 300px;
-  margin-bottom: 30px;
+  padding-left: 200px;
+  margin-bottom: 50px;
 }
-.menu {
-  width: 20px;
-  height: 20px;
-  margin-right: 50px;
-}
+
 .datos {
   display: flex;
   flex-flow: column;
@@ -61,5 +60,23 @@ import CardDS from "../components/CardDS.vue";
   align-items: center;
   position: relative;
   height: 500px;
+}
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: linear-gradient(#3777e1, #003b9c);
+  border-width: 0;
+  border-radius: 15px;
+  min-width: 135px;
+  min-height: 50px;
+  box-shadow: 2px 2px 5px black;
+  font-size: 16px;
+  font-weight: 800;
+}
+.add:hover {
+  cursor: pointer;
+  background: #003b9c;
 }
 </style>

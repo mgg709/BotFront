@@ -31,6 +31,7 @@
   background: linear-gradient(135deg, #232323 20%, #2963d3);
   border-radius: 20px;
   padding: 0 20px;
+  margin-bottom: 15px;
 }
 
 img.coin {
@@ -79,7 +80,7 @@ img.coin {
   font-size: 17px;
   font-weight: 700;
 }
-button {
+.close {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +94,7 @@ button {
   font-size: 14px;
   font-weight: 800;
 }
-button:hover {
+.close:hover {
   cursor: pointer;
   background: #970b0b;
 }
@@ -110,6 +111,7 @@ button:hover {
     background: linear-gradient(135deg, #232323 20%, #2963d3);
     border-radius: 20px;
     padding: 0 20px;
+    margin-bottom: 20px;
   }
 
   img.coin {
@@ -158,7 +160,7 @@ button:hover {
     font-size: 19px;
     font-weight: 700;
   }
-  button {
+  .close {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,7 +174,7 @@ button:hover {
     font-size: 16px;
     font-weight: 800;
   }
-  button:hover {
+  .close:hover {
     cursor: pointer;
     background: #970b0b;
   }
