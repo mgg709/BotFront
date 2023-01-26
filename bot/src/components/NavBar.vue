@@ -24,8 +24,7 @@
   left: 0;
   width: 100%;
   max-width: 100%;
-  max-height: auto;
-  height: 65px;
+  min-height: 65px;
   border-bottom: 4px solid #3777e1;
   box-shadow: 0 3px 10px #000;
   background-color: #232323;
@@ -42,7 +41,7 @@
   width: 70%;
   max-width: 100%;
   max-height: auto;
-  height: 65px;
+  min-height: 65px;
 }
 
 .elements {
@@ -57,5 +56,14 @@
   font-family: "Inter", sans-serif;
   font-size: 20px;
   text-decoration: none;
+}
+
+@media (max-width: 650px) {
+  .bar {
+    flex-direction: column;
+  }
+  .elements {
+    margin-bottom: 2px;
+  }
 }
 </style>

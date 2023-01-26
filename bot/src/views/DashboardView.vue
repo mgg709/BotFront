@@ -24,7 +24,7 @@ import CardDS from "../components/CardDS.vue";
 .ajuste {
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 999;
 }
 .content {
   display: flex;
@@ -35,6 +35,7 @@ import CardDS from "../components/CardDS.vue";
   top: 0;
   padding-top: 90px;
   width: 100vw;
+  max-width: 1600px;
 }
 .title {
   display: flex;
@@ -45,7 +46,8 @@ import CardDS from "../components/CardDS.vue";
   font-size: 30px;
   font-weight: 700;
   align-self: flex-start;
-  padding-left: 100px;
+  padding-left: 300px;
+  margin-bottom: 30px;
 }
 .menu {
   width: 20px;
