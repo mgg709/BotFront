@@ -1,28 +1,34 @@
 <script setup>
-window.onpopstate = function () {
-  location.reload();
-};
+import NavBar from "../components/NavBar.vue";
+
+window.addEventListener("load", function () {
+  this.location.reload();
+});
 </script>
 <template>
-  <div class="content-home">
-    <RouterLink to="/dashboard">
+  <NavBar class="ajuste-bothome"></NavBar>
+  <div class="content-bothome">
+    <RouterLink to="">
       <button class="img-btn">
-        <img class="seguimiento" />Panel de control
+        <img class="dca" src="../assets/dca.png" />DCA
       </button>
     </RouterLink>
     <RouterLink to="/bot">
-      <button class="img-btn"><img class="bot" />Bot</button>
+      <button class="img-btn"><img class="bot" />HOLD</button>
     </RouterLink>
-    <RouterLink to="/consejo">
-      <button class="img-btn"><img class="consejo" />Consejo</button>
-    </RouterLink>
+    <button class="img-btn"><img class="consejo" />INDICADORES</button>
   </div>
 
   <RouterView />
 </template>
 
 <style>
-.content-home {
+.ajuste-bothome {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.content-bothome {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -49,9 +55,21 @@ button.img-btn {
   font-size: 20px;
   font-weight: 800;
   transition: 0.5s, color 0.1s;
-  -webkit-transition: 0.5s, color 0.1s;
-  -moz-transition: 0.5s, color 0.1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 40px;
 }
+
+.img-btn img {
+  padding: 5px;
+}
+
+.img-btn:hover .dca {
+  content: url("src/assets/dca-hover.png");
+}
+
 button.img-btn:hover {
   text-decoration: none;
   padding: 0;
@@ -93,5 +111,8 @@ button.img-btn img.seguimiento {
 button.img-btn:hover img.seguimiento {
   content: url("src/assets/dashboard-hover.png");
   padding: 8px;
+}
+a {
+  text-decoration: none;
 }
 </style>

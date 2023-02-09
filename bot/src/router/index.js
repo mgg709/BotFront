@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -12,6 +13,31 @@ const router = createRouter({
       path: "/dashboard",
       name: "dashboard",
       component: () => import("../views/DashboardView.vue"),
+    },
+    {
+      path: "/bot",
+      name: "bothome",
+      component: () => import("../views/BotHomeView.vue"),
+    },
+    {
+      path: "/consejo",
+      name: "consejo",
+      component: () => import("../views/AdviseView.vue"),
+    },
+    {
+      path: "/bot/dca",
+      name: "botdca",
+      component: () => import("../views/BotDCAView.vue"),
+    },
+    {
+      path: "/bot/hold",
+      name: "bothold",
+      component: () => import("../views/BotHoldView.vue"),
+    },
+    {
+      path: "/bot/indicators",
+      name: "botindicators",
+      component: () => import("../views/BotIndicatorsView.vue"),
     },
   ],
 });

@@ -1,4 +1,9 @@
-<script setup></script>
+//@ts-nocheck
+<script setup>
+window.onpopstate = function () {
+  location.reload();
+};
+</script>
 
 <template>
   <header class="cabecera">
@@ -6,8 +11,9 @@
       <RouterLink id="ds" to="/dashboard" class="elements"
         >Panel de control</RouterLink
       >
-      <RouterLink id="bot" to="/dashboard" class="elements">Bot</RouterLink>
-      <RouterLink id="advise" to="/dashboard" class="elements"
+      <RouterLink id="bot" to="/bot" class="elements">Bot</RouterLink>
+
+      <RouterLink id="advise" to="/consejo" class="elements"
         >Consejo</RouterLink
       >
     </div>
@@ -37,8 +43,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  position: sticky;
-  width: 70%;
+  position: fixed;
+  width: 80%;
   max-width: 100%;
   max-height: auto;
   min-height: 65px;

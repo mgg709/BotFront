@@ -6,7 +6,7 @@ import LateralMenu from "../components/LateralMenu.vue";
 <template>
   <NavBar class="ajuste"></NavBar>
   <LateralMenu></LateralMenu>
-  <section class="content">
+  <section class="content-dashboard">
     <div class="title">
       <span>CARTERA LOREM</span>
     </div>
@@ -28,7 +28,7 @@ import LateralMenu from "../components/LateralMenu.vue";
   top: 0;
   z-index: 999;
 }
-.content {
+.content-dashboard {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -39,6 +39,7 @@ import LateralMenu from "../components/LateralMenu.vue";
   width: 100vw;
   height: 100vh;
   max-width: 1600px;
+  margin-bottom: 50px;
 }
 .title {
   display: flex;
