@@ -109,4 +109,9 @@ import NavBar from "../components/NavBar.vue";
   width: 250px;
   margin: 5px;
 }
+#form-advise input::-webkit-outer-spin-button,
+#form-advise input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>
