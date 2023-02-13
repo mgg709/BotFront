@@ -1,9 +1,6 @@
+//@ts-nocheck
 <script setup></script>
-
 <template>
-  <!-- <div class="btn-menu">
-    <img class="menu2" src="src/assets/burguer-menu.svg" />
-  </div> -->
   <div id="menu" class="contenido-menu">
     <section class="titulo">CARTERAS</section>
     <ul class="lista">

@@ -42,7 +42,7 @@ import LateralMenu from "../components/LateralMenu.vue";
   margin-bottom: 50px;
   z-index: 998;
 }
-.title {
+.content-dashboard .title {
   display: flex;
   justify-content: flex-start;
   align-items: center;
