@@ -1,9 +1,5 @@
 //@ts-nocheck
-<script setup>
-window.onpopstate = function () {
-  location.reload();
-};
-</script>
+<script setup></script>
 
 <template>
   <header class="cabecera">

@@ -40,6 +40,7 @@ import LateralMenu from "../components/LateralMenu.vue";
   height: 100vh;
   max-width: 1600px;
   margin-bottom: 50px;
+  z-index: 998;
 }
 .title {
   display: flex;

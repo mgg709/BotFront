@@ -27,4 +27,5 @@
 .footer img {
   width: 100vw;
   position: static;
+  z-index: 997;
 }

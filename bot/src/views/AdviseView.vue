@@ -25,8 +25,12 @@ import NavBar from "../components/NavBar.vue";
             <button id="estrategia-largo">Largo plazo</button>
           </div>
           <label for="duracion">Duración estimada de la inversión</label>
-          <input type="number" name="dias" id="dias" />
-          <input type="number" name="horas" id="horas" />
+          <div class="duration">
+            <input type="number" name="dias" id="dias" />
+            <label for="horas">Días</label>
+            <input type="number" name="horas" id="horas" />
+            <label for="dias">Horas</label>
+          </div>
           <label for="perdida">Perdida máxima de la inversión</label>
           <input type="number" name="perdida" id="perdida" />
           <input type="submit" value="Enviar" id="enviar" />
@@ -53,6 +57,7 @@ import NavBar from "../components/NavBar.vue";
   width: 88vw;
   padding-top: 50px;
   height: 90vh;
+  z-index: 999;
 }
 .explicacion-advise {
   color: white;
@@ -98,7 +103,6 @@ import NavBar from "../components/NavBar.vue";
   color: white;
   display: block;
   padding: 5px;
-  padding-bottom: 10px;
 }
 
 #form-advise input[type="number"] {
@@ -113,5 +117,56 @@ import NavBar from "../components/NavBar.vue";
 #form-advise input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.duration {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#horas,
+#dias {
+  width: 80px !important;
+  height: 20px !important;
+}
+
+#estrategia-corto,
+#estrategia-largo {
+  width: 120px;
+  height: 35px;
+  margin: 5px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+.botones-advise {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#enviar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: linear-gradient(#3777e1, #003b9c);
+  border-width: 0;
+  border-radius: 10px;
+  min-width: 100px;
+  min-height: 40px;
+  box-shadow: 2px 2px 5px black;
+  font-size: 16px;
+  font-weight: 800;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#enviar:hover {
+  cursor: pointer;
+  background: #003b9c;
 }
 </style>
