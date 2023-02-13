@@ -68,28 +68,28 @@ import NavBar from "../components/NavBar.vue";
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 0;
   z-index: 998;
   width: 100%;
   height: 90vh;
-  margin-top: 100px;
+  padding-top: 50px;
 }
 .container-botdca .title {
   color: white;
   font-size: 30px;
   font-weight: 800;
   padding: 0;
-  margin: 0;
+  margin-bottom: 20px;
 }
 .forms-botdca {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .left-side-botdca {
   width: 45%;
-  height: auto;
+  height: 100%;
   padding-left: 20px;
 }
 
@@ -101,7 +101,7 @@ import NavBar from "../components/NavBar.vue";
 .left-side-botdca .form-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
 }
 
