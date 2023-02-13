@@ -1,22 +1,24 @@
 <script setup>
 import NavBar from "../components/NavBar.vue";
-
-window.addEventListener("load", function () {
-  this.location.reload();
-});
 </script>
 <template>
   <NavBar class="ajuste-bothome"></NavBar>
   <div class="content-bothome">
-    <RouterLink to="">
+    <RouterLink to="/bot/dca">
       <button class="img-btn">
         <img class="dca" src="../assets/dca.png" />DCA
       </button>
     </RouterLink>
-    <RouterLink to="/bot">
-      <button class="img-btn"><img class="bot" />HOLD</button>
+    <RouterLink to="/bot/hold">
+      <button class="img-btn">
+        <img class="hold" src="../assets/hold.png" />HOLD
+      </button>
     </RouterLink>
-    <button class="img-btn"><img class="consejo" />INDICADORES</button>
+    <RouterLink to="/bot/indicators">
+      <button class="img-btn">
+        <img class="indicators" src="../assets/indicators.png" />INDICADORES
+      </button>
+    </RouterLink>
   </div>
 
   <RouterView />
@@ -63,11 +65,19 @@ button.img-btn {
 }
 
 .img-btn img {
-  padding: 5px;
+  padding: 7px;
 }
 
 .img-btn:hover .dca {
   content: url("src/assets/dca-hover.png");
+}
+
+.img-btn:hover .hold {
+  content: url("src/assets/hold-hover.png");
+}
+
+.img-btn:hover .indicators {
+  content: url("src/assets/indicators-hover.png");
 }
 
 button.img-btn:hover {

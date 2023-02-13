@@ -49,6 +49,9 @@ import NavBar from "../components/NavBar.vue";
   </div>
 </template>
 <style>
+.ajuste {
+  z-index: 999;
+}
 .content-advise {
   display: flex;
   flex-direction: column;
@@ -57,7 +60,7 @@ import NavBar from "../components/NavBar.vue";
   width: 88vw;
   padding-top: 50px;
   height: 90vh;
-  z-index: 999;
+  z-index: 998;
 }
 .explicacion-advise {
   color: white;
@@ -80,8 +83,9 @@ import NavBar from "../components/NavBar.vue";
   background: linear-gradient(to bottom, #363636, #141313);
   border: 1px solid #545353;
   width: 30%;
-  height: 90%;
+  height: 400px;
   border-radius: 5px;
+  margin-bottom: 100px;
 }
 
 #form-advise {
@@ -103,6 +107,7 @@ import NavBar from "../components/NavBar.vue";
   color: white;
   display: block;
   padding: 5px;
+  font-weight: 700;
 }
 
 #form-advise input[type="number"] {
@@ -168,5 +173,18 @@ import NavBar from "../components/NavBar.vue";
 #enviar:hover {
   cursor: pointer;
   background: #003b9c;
+}
+
+.resultado-advise {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultado-advise span {
+  width: 10vw;
+  height: 20vh;
+  background: gray;
 }
 </style>
