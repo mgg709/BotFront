@@ -9,7 +9,7 @@ import NavBar from "../components/NavBar.vue";
       <section class="left-side-botdca">
         <div class="form-container">
           <p>Ajustes principales</p>
-          <div class="form">
+          <div class="form-items">
             <form>
               <label for="name">Nombre</label>
               <input type="text" name="name" id="name" />
@@ -23,7 +23,7 @@ import NavBar from "../components/NavBar.vue";
           </div>
           <div class="guide-left-botdca">
             <p>¿Cómo funciona?</p>
-            <div>
+            <div class="guide-container-botdca">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum
               cupiditate non maxime ipsum minima amet. Libero, optio nihil?
               Ullam error distinctio eligendi consequatur quod enim dolorem ex
@@ -63,6 +63,8 @@ import NavBar from "../components/NavBar.vue";
   </div>
 </template>
 <style>
+/* contenido general */
+
 .container-botdca {
   display: flex;
   flex-direction: column;
@@ -73,6 +75,9 @@ import NavBar from "../components/NavBar.vue";
   height: 90vh;
   padding-top: 50px;
 }
+
+/* titulo */
+
 .container-botdca .title {
   color: white;
   font-size: 30px;
@@ -80,6 +85,9 @@ import NavBar from "../components/NavBar.vue";
   padding: 0;
   margin-bottom: 20px;
 }
+
+/* Secciones formularios */
+
 .forms-botdca {
   display: flex;
   justify-content: center;
@@ -87,15 +95,12 @@ import NavBar from "../components/NavBar.vue";
   height: 100%;
 }
 
+/* Seccion izquierda */
+
 .left-side-botdca {
   width: 45%;
   height: 100%;
   padding-left: 20px;
-}
-
-.right-side-botdca {
-  width: 45%;
-  height: auto;
 }
 
 .left-side-botdca .form-container {
@@ -109,14 +114,16 @@ import NavBar from "../components/NavBar.vue";
   color: white;
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.form-container .form {
+.left-side-botdca .form-container .form-items {
   background: linear-gradient(to bottom, #363636, #141313);
   width: 70%;
   height: 200px;
   border: 1px solid #545353;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .form-container form {
@@ -126,11 +133,13 @@ import NavBar from "../components/NavBar.vue";
   align-items: flex-start;
   padding: 20px;
 }
+
 .form-container form label {
   color: white;
   font-weight: 700;
   margin-bottom: 5px;
 }
+
 .form-container form input {
   background: #545353;
   border-radius: 5px;
@@ -145,5 +154,51 @@ import NavBar from "../components/NavBar.vue";
   border-radius: 5px;
   border: none;
   margin-bottom: 8px;
+  resize: none;
+}
+
+.guide-left-botdca {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.guide-container-botdca {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  background: linear-gradient(to bottom, #363636, #141313);
+  width: 70%;
+  height: 33vh;
+  border: 1px solid #545353;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 20px;
+  color: white;
+  text-align: justify;
+}
+/* Seccion derecha */
+
+.right-side-botdca {
+  width: 45%;
+  height: auto;
+}
+.right-side-botdca p {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.strategy-right-form-botdca {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: linear-gradient(to bottom, #363636, #141313);
+  border: 1px solid #545353;
+  border-radius: 5px;
 }
 </style>
