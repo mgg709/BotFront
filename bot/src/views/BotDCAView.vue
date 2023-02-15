@@ -2,7 +2,7 @@
 import NavBar from "../components/NavBar.vue";
 </script>
 <template>
-  <NavBar></NavBar>
+  <NavBar class="ajuste"></NavBar>
   <div class="container-botdca">
     <p class="title">DCA</p>
     <div class="forms-botdca">
@@ -38,32 +38,44 @@ import NavBar from "../components/NavBar.vue";
       <section class="right-side-botdca">
         <p>Estrategia</p>
         <div class="strategy-right-form-botdca">
-          <label for="par">Par criptomoneda</label>
-          <input type="text" name="par" id="par" />
-          <div class="table">
-            <div class="row-1">
-              <label for="quantity">Cantidad</label>
-              <label for="order">Tipo de orden</label>
+          <form action="">
+            <label for="par">Par criptomoneda</label>
+            <input type="text" name="par" id="par" />
+            <div class="table">
+              <div class="row-1">
+                <label for="quantity" id="quantity-l">Cantidad</label>
+                <label for="order" id="order-l">Tipo de orden</label>
+              </div>
+              <div class="row-2">
+                <input type="number" name="quantity" id="quantity" />
+                <input type="text" name="order" id="order" />
+              </div>
+              <div class="row-3">
+                <label for="market">Mercado</label>
+                <label for="condition" id="condition-l">Condición</label>
+              </div>
+              <div class="row-4">
+                <input type="text" name="market" id="market" />
+                <input type="text" name="condition" id="condition" />
+              </div>
             </div>
-            <div class="row-2">
-              <input type="number" name="quantity" id="quantity" />
-              <input type="text" name="order" id="order" />
-            </div>
-          </div>
-          <label for="max-orders">Nº Max. Órdenes</label>
-          <input type="number" name="max-orders" id="max-orders" />
-          <label for="tp">Take profit</label>
-          <input type="number" name="tp" id="tp" />
-          <label for="sl">Stop loss</label>
-          <input type="number" name="sl" id="sl" />
+            <label for="max-orders">Nº Max. Órdenes</label>
+            <input type="number" name="max-orders" id="max-orders" />
+            <label for="tp">Take profit</label>
+            <input type="number" name="tp" id="tp" />
+            <label for="sl">Stop loss</label>
+            <input type="number" name="sl" id="sl" />
+          </form>
         </div>
       </section>
     </div>
-    <button class="btn-botdca">Crear bot</button>
+    <div class="button-submit-botdca">
+      <input type="submit" value="Crear bot" />
+    </div>
   </div>
 </template>
 <style>
-/* contenido general */
+/* contenido general y barra superior*/
 
 .container-botdca {
   display: flex;
@@ -72,8 +84,13 @@ import NavBar from "../components/NavBar.vue";
   align-items: center;
   z-index: 998;
   width: 100%;
-  height: 90vh;
-  padding-top: 50px;
+  height: 95vh;
+  top: 70px;
+  position: relative;
+}
+
+.ajuste {
+  z-index: 999;
 }
 
 /* titulo */
@@ -107,7 +124,7 @@ import NavBar from "../components/NavBar.vue";
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .left-side-botdca .form-container p {
@@ -161,13 +178,13 @@ import NavBar from "../components/NavBar.vue";
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .guide-container-botdca {
   display: flex;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: linear-gradient(to bottom, #363636, #141313);
   width: 70%;
   height: 33vh;
@@ -183,6 +200,10 @@ import NavBar from "../components/NavBar.vue";
 .right-side-botdca {
   width: 45%;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .right-side-botdca p {
   color: white;
@@ -194,11 +215,86 @@ import NavBar from "../components/NavBar.vue";
 .strategy-right-form-botdca {
   height: 60vh;
   display: flex;
+  width: 60%;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   background: linear-gradient(to bottom, #363636, #141313);
   border: 1px solid #545353;
   border-radius: 5px;
+  padding-top: 12px;
+  padding-left: 15px;
+}
+
+.strategy-right-form-botdca form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.strategy-right-form-botdca label {
+  color: white;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.strategy-right-form-botdca form input {
+  background: #545353;
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+  width: 250px;
+  margin-bottom: 12px;
+}
+
+.strategy-right-form-botdca .row-1,
+.row-3 {
+  margin-bottom: 5px;
+}
+.strategy-right-form-botdca #order-l {
+  margin-left: 65px;
+}
+
+.strategy-right-form-botdca .row-2 input {
+  width: 40%;
+  margin-right: 25px;
+}
+
+.strategy-right-form-botdca .row-4 input {
+  width: 40%;
+  margin-right: 25px;
+}
+
+.strategy-right-form-botdca #condition-l {
+  margin-left: 69px;
+}
+
+/* Boton crear bot */
+
+.button-submit-botdca {
+  height: 100px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.container-botdca input[type="submit"] {
+  display: block;
+  color: white;
+  background: linear-gradient(#3777e1, #003b9c);
+  border-width: 0;
+  border-radius: 7px;
+  min-width: 150px;
+  min-height: 40px;
+  box-shadow: 2px 2px 5px black;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container-botdca input[type="submit"]:hover {
+  cursor: pointer;
+  background: #003b9c;
 }
 </style>
