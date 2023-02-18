@@ -5,18 +5,14 @@ import NavBar from "../components/NavBar.vue";
   <NavBar class="ajuste-bothome"></NavBar>
   <div class="content-bothome">
     <RouterLink to="/bot/dca">
-      <button class="img-btn">
-        <img class="dca" src="../assets/dca.png" />DCA
-      </button>
+      <button class="img-btn-bothome"><img class="dca" />DCA</button>
     </RouterLink>
     <RouterLink to="/bot/hold">
-      <button class="img-btn">
-        <img class="hold" src="../assets/hold.png" />HOLD
-      </button>
+      <button class="img-btn-bothome"><img class="hold" />HOLD</button>
     </RouterLink>
     <RouterLink to="/bot/indicators">
-      <button class="img-btn">
-        <img class="indicators" src="../assets/indicators.png" />INDICADORES
+      <button class="img-btn-bothome">
+        <img class="indicators" />INDICADORES
       </button>
     </RouterLink>
   </div>
@@ -33,14 +29,13 @@ import NavBar from "../components/NavBar.vue";
 .content-bothome {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   width: 100vw;
   justify-content: space-evenly;
   padding-bottom: 100px;
 }
 
-button.img-btn {
+button.img-btn-bothome {
   box-sizing: border-box;
   text-decoration: none;
   padding: 0;
@@ -64,23 +59,35 @@ button.img-btn {
   line-height: 40px;
 }
 
-.img-btn img {
+.img-btn-bothome img {
   padding: 7px;
 }
 
-.img-btn:hover .dca {
-  content: url("src/assets/dca-hover.png");
+.dca {
+  content: url("/src/assets/dca.png");
 }
 
-.img-btn:hover .hold {
-  content: url("src/assets/hold-hover.png");
+.img-btn-bothome:hover .dca {
+  content: url("/src/assets/dca-hover.png");
 }
 
-.img-btn:hover .indicators {
-  content: url("src/assets/indicators-hover.png");
+.hold {
+  content: url("/src/assets/hold.png");
 }
 
-button.img-btn:hover {
+.img-btn-bothome:hover .hold {
+  content: url("/src/assets/hold-hover.png");
+}
+
+.indicators {
+  content: url("/src/assets/indicators.png");
+}
+
+.img-btn-bothome:hover .indicators {
+  content: url("/src/assets/indicators-hover.png");
+}
+
+button.img-btn-bothome:hover {
   text-decoration: none;
   padding: 0;
   border-radius: 10px;
@@ -93,35 +100,6 @@ button.img-btn:hover {
   -moz-transform: translatey(-20px);
 }
 
-button.img-btn img.bot {
-  content: url("src/assets/robot.png");
-  padding: 8px;
-}
-
-button.img-btn:hover img.bot {
-  content: url("src/assets/robot-hover.png");
-  padding: 8px;
-}
-
-button.img-btn img.consejo {
-  content: url("src/assets/consejo.png");
-  padding: 8px;
-}
-
-button.img-btn:hover img.consejo {
-  content: url("src/assets/consejo-hover.png");
-  padding: 8px;
-}
-
-button.img-btn img.seguimiento {
-  content: url("src/assets/dashboard.png");
-  padding: 8px;
-}
-
-button.img-btn:hover img.seguimiento {
-  content: url("src/assets/dashboard-hover.png");
-  padding: 8px;
-}
 a {
   text-decoration: none;
 }

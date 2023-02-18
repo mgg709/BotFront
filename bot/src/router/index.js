@@ -40,6 +40,7 @@ const router = createRouter({
       component: () => import("../views/BotIndicatorsView.vue"),
     },
   ],
+  linkActiveClass: "active",
 });
 
 export default router;

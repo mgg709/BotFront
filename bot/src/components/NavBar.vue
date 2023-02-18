@@ -7,8 +7,9 @@
       <RouterLink id="ds" to="/dashboard" class="elements"
         >Panel de control</RouterLink
       >
+      <div class="separator"></div>
       <RouterLink id="bot" to="/bot" class="elements">Bot</RouterLink>
-
+      <div class="separator"></div>
       <RouterLink id="advise" to="/consejo" class="elements"
         >Consejo</RouterLink
       >
@@ -60,9 +61,29 @@
   text-decoration: none;
 }
 
-@media (max-width: 650px) {
+.separator {
+  width: 1px;
+  height: 30px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+@media (max-width: 450px) {
+  .cabecera {
+    min-height: 100px;
+  }
   .bar {
     flex-direction: column;
+
+    padding: 0;
+  }
+  .separator {
+    width: 150px;
+    height: 1px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
   }
   .elements {
     margin-bottom: 2px;

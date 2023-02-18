@@ -75,7 +75,7 @@ import NavBar from "../components/NavBar.vue";
   </div>
 </template>
 <style>
-/* contenido general y barra superior*/
+/* contenido general*/
 
 .container-botdca {
   display: flex;
@@ -87,10 +87,6 @@ import NavBar from "../components/NavBar.vue";
   height: 95vh;
   top: 70px;
   position: relative;
-}
-
-.ajuste {
-  z-index: 999;
 }
 
 /* titulo */
@@ -174,6 +170,8 @@ import NavBar from "../components/NavBar.vue";
   resize: none;
 }
 
+/* ¿Como funciona? */
+
 .guide-left-botdca {
   display: flex;
   flex-direction: column;
@@ -213,7 +211,7 @@ import NavBar from "../components/NavBar.vue";
 }
 
 .strategy-right-form-botdca {
-  height: 60vh;
+  max-height: 60vh;
   display: flex;
   width: 60%;
   flex-direction: column;

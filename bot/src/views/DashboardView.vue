@@ -4,28 +4,34 @@ import CardDS from "../components/CardDS.vue";
 import LateralMenu from "../components/LateralMenu.vue";
 </script>
 <template>
-  <NavBar class="ajuste"></NavBar>
-  <LateralMenu></LateralMenu>
   <section class="content-dashboard">
-    <div class="title">
+    <NavBar class="ajuste"></NavBar>
+    <LateralMenu class="ajuste-lateral"></LateralMenu>
+    <div class="title-dashboard">
       <span>CARTERA LOREM</span>
     </div>
     <div class="datos">
-      <CardDS></CardDS>
-      <CardDS></CardDS>
-      <CardDS></CardDS>
-      <CardDS></CardDS>
-      <CardDS></CardDS>
-      <CardDS></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+      <CardDS class="tarjeta-dashboard"></CardDS>
+
       <button class="add">AÑADIR</button>
     </div>
   </section>
 </template>
 
 <style>
-.ajuste {
+.ajuste-lateral {
   position: fixed;
-  top: 0;
   z-index: 999;
 }
 .content-dashboard {
@@ -33,35 +39,25 @@ import LateralMenu from "../components/LateralMenu.vue";
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  position: relative;
-  top: 0;
-  padding-top: 110px;
+  padding-top: 5em; /* 80px */
   width: 100vw;
   height: 100vh;
-  max-width: 1600px;
-  margin-bottom: 50px;
   z-index: 998;
 }
-.content-dashboard .title {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
+.title-dashboard {
   color: white;
-  font-size: 30px;
-  font-weight: 700;
-  align-self: flex-start;
-  padding-left: 200px;
-  margin-bottom: 50px;
+  font-size: 1.8em;
+  width: 65%;
+  padding-top: 0.2em;
+  margin-bottom: 40px;
 }
 
 .datos {
   display: flex;
   flex-flow: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  position: relative;
-  height: 500px;
+  margin-bottom: 200px;
 }
 .add {
   display: flex;
@@ -76,9 +72,28 @@ import LateralMenu from "../components/LateralMenu.vue";
   box-shadow: 2px 2px 5px black;
   font-size: 16px;
   font-weight: 800;
+  margin-bottom: 40px;
 }
 .add:hover {
   cursor: pointer;
   background: #003b9c;
+}
+
+@media (max-width: 700px) {
+  .datos {
+    position: absolute;
+    left: 110px;
+    top: 160px;
+  }
+  .title-dashboard {
+    position: absolute;
+    left: 130px;
+  }
+}
+
+@media (max-width: 450px) {
+  .title-dashboard {
+    display: none;
+  }
 }
 </style>

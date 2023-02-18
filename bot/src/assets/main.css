@@ -1,7 +1,6 @@
 @import "./base.css";
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
   font-weight: normal;
 }
@@ -21,10 +20,20 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  z-index: 997;
+  z-index: -1;
 }
 .footer img {
   width: 100vw;
   position: static;
-  z-index: 997;
+  z-index: -1;
+}
+
+/* Bara superior de navegación */
+
+.ajuste {
+  z-index: 999;
+}
+
+.active {
+  color: #3777e1 !important;
 }

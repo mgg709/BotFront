@@ -1,79 +1,91 @@
 //@ts-nocheck
 <script setup></script>
 <template>
-  <div id="menu" class="contenido-menu">
-    <section class="titulo">CARTERAS</section>
-    <ul class="lista">
-      <li class="cartera">Cartera 1</li>
-      <li class="cartera">Cartera 2</li>
-      <li class="cartera">Cartera 3</li>
-      <li class="cartera">Cartera 4</li>
-    </ul>
-  </div>
+  <ul>
+    <h2>CARTERAS</h2>
+    <li><a>Cartera 1</a></li>
+    <li><a>Cartera 2</a></li>
+    <li><a>Cartera 3</a></li>
+    <li><a>Cartera 4</a></li>
+    <button class="add-lateralmenu">AÑADIR</button>
+  </ul>
 </template>
 <style>
-.btn-menu {
-  margin: 40px 50px;
-  z-index: 999;
-}
-.menu2 {
-  vertical-align: top;
-  width: 40px;
-  cursor: pointer;
-  color: white;
-  background: none;
-  border: none;
+ul {
+  list-style-type: none;
+  margin: 0;
   padding: 0;
-  margin-right: 20px;
-  top: 0;
+  width: 15%;
+  background-color: #232323;
+  position: fixed;
   left: 0;
+  top: 65px;
+  height: 100%;
+  border-right: 1px solid #545353;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.contenido-menu {
-  background-color: #3d3d3d;
-  width: 250px;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0 !important;
-  transition: all 0.5s ease;
-  padding-top: 72px;
-}
-.cartera {
-  font-size: 20px;
-  font-weight: 500;
-}
-.titulo {
+ul h2 {
+  border-bottom: 1px solid #3777e1;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 10%;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 250px;
-  height: 50px;
+}
+ul li {
+  padding-top: 5px;
+}
+li a {
+  display: block;
   color: white;
-  background: #000000;
-  font-size: 30px;
-}
-.lista {
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  justify-content: center;
-  list-style-type: none;
-  padding: 10px 30px;
-}
-.lista:hover li {
-  background-color: white;
-  color: #000000;
-}
-.cartera {
-  margin-bottom: 10px;
+  padding: 8px 16px;
+  text-decoration: none;
 }
 
-.active {
-  transform: translate(-600px);
+li a:hover {
+  background-color: #3777e1;
 }
-.opacity {
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: all 0.5s ease;
+
+.add-lateralmenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: linear-gradient(#3777e1, #003b9c);
+  border-width: 0;
+  border-radius: 15px;
+  min-width: 8vw;
+  min-height: 7vh;
+  box-shadow: 2px 2px 5px black;
+  font-size: 1.1em;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.add-lateralmenu:hover {
+  cursor: pointer;
+  background: #003b9c;
+}
+
+@media (max-width: 1000px) {
+  ul {
+    min-width: 115px;
+  }
+  ul h2 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 450px) {
+  ul {
+    top: 100px;
+  }
 }
 </style>

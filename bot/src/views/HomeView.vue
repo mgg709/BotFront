@@ -66,32 +66,32 @@ button.img-btn:hover {
 }
 
 button.img-btn img.bot {
-  content: url("src/assets/robot.png");
+  content: url("/src/assets/robot.png");
   padding: 8px;
 }
 
 button.img-btn:hover img.bot {
-  content: url("src/assets/robot-hover.png");
+  content: url("/src/assets/robot-hover.png");
   padding: 8px;
 }
 
 button.img-btn img.consejo {
-  content: url("src/assets/consejo.png");
+  content: url("/src/assets/consejo.png");
   padding: 8px;
 }
 
 button.img-btn:hover img.consejo {
-  content: url("src/assets/consejo-hover.png");
+  content: url("/src/assets/consejo-hover.png");
   padding: 8px;
 }
 
 button.img-btn img.seguimiento {
-  content: url("src/assets/dashboard.png");
+  content: url("/src/assets/dashboard.png");
   padding: 8px;
 }
 
 button.img-btn:hover img.seguimiento {
-  content: url("src/assets/dashboard-hover.png");
+  content: url("/src/assets/dashboard-hover.png");
   padding: 8px;
 }
 </style>

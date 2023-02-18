@@ -3,8 +3,8 @@
 import NavBar from "../components/NavBar.vue";
 </script>
 <template>
-  <NavBar class="ajuste"></NavBar>
   <div class="content-advise">
+    <NavBar class="ajuste"></NavBar>
     <p class="explicacion-advise">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
       voluptates! Sit voluptate consectetur magnam consequatur id consequuntur
@@ -50,32 +50,41 @@ import NavBar from "../components/NavBar.vue";
   </div>
 </template>
 <style>
-.ajuste {
-  z-index: 999;
-}
+/* Sección general */
+
 .content-advise {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 88vw;
-  padding-top: 50px;
-  height: 90vh;
+  width: 100vw;
+  padding-top: 90px;
+  height: 100vh;
   z-index: 998;
 }
+
+/* Definición de este site */
+
 .explicacion-advise {
   color: white;
   width: 60vw;
   height: auto;
   text-align: center;
+  margin-bottom: 4%;
+  text-align: justify;
 }
+
 .subcontainer-advise {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   height: 100%;
 }
+
+/* Formulario izquierda */
+
 .formulario-advise {
   display: flex;
   flex-direction: column;
@@ -84,9 +93,10 @@ import NavBar from "../components/NavBar.vue";
   background: linear-gradient(to bottom, #363636, #141313);
   border: 1px solid #545353;
   width: 30%;
-  height: 400px;
+  height: 70%;
   border-radius: 5px;
   margin-bottom: 100px;
+  padding-top: 20px;
 }
 
 #form-advise {
@@ -176,11 +186,14 @@ import NavBar from "../components/NavBar.vue";
   background: #003b9c;
 }
 
+/* Resultado sección derecha */
+
 .resultado-advise {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .resultado-advise span {
