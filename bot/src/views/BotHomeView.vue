@@ -21,11 +21,6 @@ import NavBar from "../components/NavBar.vue";
 </template>
 
 <style>
-.ajuste-bothome {
-  position: fixed;
-  top: 0;
-  z-index: 999;
-}
 .content-bothome {
   display: flex;
   flex-direction: row;
@@ -35,15 +30,15 @@ import NavBar from "../components/NavBar.vue";
   padding-bottom: 100px;
 }
 
-button.img-btn-bothome {
+.img-btn-bothome {
   box-sizing: border-box;
   text-decoration: none;
   padding: 0;
   border-radius: 10px;
   background: linear-gradient(#3777e1, #003b9c);
   margin: 0;
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 125px;
   cursor: pointer;
   border: none;
   box-shadow: 0px 0px 5px black;
@@ -60,7 +55,7 @@ button.img-btn-bothome {
 }
 
 .img-btn-bothome img {
-  padding: 7px;
+  padding: 12px;
 }
 
 .dca {

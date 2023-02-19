@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img class="coin" src="/src/assets/burguer-menu.svg" />
+    <img class="coin" src="/src/assets/bitcoin.png" />
     <section class="precio">65000</section>
     <section class="porcentaje">2%</section>
     <section class="mercado">SPOT</section>

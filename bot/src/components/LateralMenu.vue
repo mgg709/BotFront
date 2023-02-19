@@ -2,7 +2,7 @@
 <script setup></script>
 <template>
   <ul>
-    <h2>CARTERAS</h2>
+    <p>CARTERAS</p>
     <li><a>Cartera 1</a></li>
     <li><a>Cartera 2</a></li>
     <li><a>Cartera 3</a></li>
@@ -16,6 +16,7 @@ ul {
   margin: 0;
   padding: 0;
   width: 15%;
+  max-width: 320px;
   background-color: #232323;
   position: fixed;
   left: 0;
@@ -29,7 +30,7 @@ ul {
   justify-content: flex-start;
 }
 
-ul h2 {
+ul p {
   border-bottom: 1px solid #3777e1;
   margin-bottom: 20px;
   width: 100%;
@@ -38,6 +39,8 @@ ul h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2em;
+  font-weight: 700;
 }
 ul li {
   padding-top: 5px;
@@ -47,6 +50,7 @@ li a {
   color: white;
   padding: 8px 16px;
   text-decoration: none;
+  font-size: 1.2em;
 }
 
 li a:hover {
@@ -61,8 +65,10 @@ li a:hover {
   background: linear-gradient(#3777e1, #003b9c);
   border-width: 0;
   border-radius: 15px;
-  min-width: 8vw;
-  min-height: 7vh;
+  width: 8vw;
+  max-width: 150px;
+  height: 7vh;
+  max-height: 60px;
   box-shadow: 2px 2px 5px black;
   font-size: 1.1em;
   font-weight: 800;

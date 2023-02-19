@@ -4,55 +4,78 @@ window.onpopstate = function () {
 };
 </script>
 <template>
-  <div class="content-home">
-    <RouterLink to="/dashboard">
-      <button class="img-btn">
-        <img class="seguimiento" />Panel de control
-      </button>
-    </RouterLink>
-    <RouterLink to="/bot">
-      <button class="img-btn"><img class="bot" />Bot</button>
-    </RouterLink>
-    <RouterLink to="/consejo">
-      <button class="img-btn"><img class="consejo" />Consejo</button>
-    </RouterLink>
+  <div class="container-home">
+    <div class="title-home">
+      <span>NEXUS BOT</span>
+    </div>
+    <div class="content-home">
+      <RouterLink to="/dashboard">
+        <button class="img-btn-home">
+          <img class="dashboard-home" />Panel de control
+        </button>
+      </RouterLink>
+      <RouterLink to="/bot">
+        <button class="img-btn-home"><img class="bot-home" />Bot</button>
+      </RouterLink>
+      <RouterLink to="/consejo">
+        <button class="img-btn-home"><img class="advise-home" />Consejo</button>
+      </RouterLink>
+    </div>
   </div>
-
   <RouterView />
 </template>
 
 <style>
+.container-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.title-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.title-home span {
+  color: white;
+  font-size: 4em;
+  font-weight: 800;
+}
+
 .content-home {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
+  height: 60%;
   justify-content: space-evenly;
-  padding-bottom: 100px;
 }
 
-button.img-btn {
-  box-sizing: border-box;
+.img-btn-home {
   text-decoration: none;
   padding: 0;
   border-radius: 10px;
   background: linear-gradient(#3777e1, #003b9c);
   margin: 0;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   cursor: pointer;
   border: none;
   box-shadow: 0px 0px 5px black;
   color: white;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 1.3em;
   font-weight: 800;
   transition: 0.5s, color 0.1s;
   -webkit-transition: 0.5s, color 0.1s;
   -moz-transition: 0.5s, color 0.1s;
 }
-button.img-btn:hover {
+.img-btn-home:hover {
   text-decoration: none;
   padding: 0;
   border-radius: 10px;
@@ -65,33 +88,33 @@ button.img-btn:hover {
   -moz-transform: translatey(-20px);
 }
 
-button.img-btn img.bot {
+.bot-home {
   content: url("/src/assets/robot.png");
-  padding: 8px;
+  padding: 12px;
 }
 
-button.img-btn:hover img.bot {
+.img-btn-home:hover .bot-home {
   content: url("/src/assets/robot-hover.png");
-  padding: 8px;
+  padding: 12px;
 }
 
-button.img-btn img.consejo {
+.advise-home {
   content: url("/src/assets/consejo.png");
-  padding: 8px;
+  padding: 12px;
 }
 
-button.img-btn:hover img.consejo {
+.img-btn-home:hover .advise-home {
   content: url("/src/assets/consejo-hover.png");
-  padding: 8px;
+  padding: 12px;
 }
 
-button.img-btn img.seguimiento {
+.dashboard-home {
   content: url("/src/assets/dashboard.png");
-  padding: 8px;
+  padding: 12px;
 }
 
-button.img-btn:hover img.seguimiento {
+.img-btn-home:hover .dashboard-home {
   content: url("/src/assets/dashboard-hover.png");
-  padding: 8px;
+  padding: 12px;
 }
 </style>

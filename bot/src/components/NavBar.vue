@@ -5,7 +5,7 @@
   <header class="cabecera">
     <div class="bar">
       <RouterLink id="ds" to="/dashboard" class="elements"
-        >Panel de control</RouterLink
+        >Dashboard</RouterLink
       >
       <div class="separator"></div>
       <RouterLink id="bot" to="/bot" class="elements">Bot</RouterLink>
@@ -37,11 +37,11 @@
   display: flex;
   margin-left: 150px;
   margin-right: 150px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 10px;
+  padding: 10px 0px;
   position: fixed;
-  width: 80%;
+  width: 85%;
   max-width: 100%;
   max-height: auto;
   min-height: 65px;
@@ -50,8 +50,10 @@
 .elements {
   color: white;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 1.4em;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .elements-a {

@@ -24,7 +24,7 @@
 }
 .footer img {
   width: 100vw;
-  position: static;
+  position: absolute;
   z-index: -1;
 }
 
@@ -37,3 +37,11 @@
 .active {
   color: #3777e1 !important;
 }
+
+/* Selector para la barra de desplazamiento en Google Chrome */
+/* ::-webkit-scrollbar {
+  z-index: 1000;
+  width: 10px;
+  height: 100%;
+  background-color: gray;
+} */
