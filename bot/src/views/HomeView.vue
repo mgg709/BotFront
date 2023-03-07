@@ -1,7 +1,22 @@
 <script setup>
-window.onpopstate = function () {
-  location.reload();
+import axios from "axios";
+import { onMounted } from "vue";
+import { ref } from "vue";
+
+const balance = ref();
+
+const getBalance = async () => {
+  try {
+    await axios.get("http://127.0.0.1:8000/botdca/balance").then((res) => {
+      balance.value = res.data["free"];
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
+onMounted(() => {
+  getBalance();
+});
 </script>
 <template>
   <div class="container-home">
@@ -9,6 +24,7 @@ window.onpopstate = function () {
       <span>NEXUS BOT</span>
     </div>
     <div class="content-home">
+      <span>Aquí DOT{{ balance }}</span>
       <RouterLink to="/dashboard">
         <button class="img-btn-home">
           <img class="dashboard-home" />Panel de control
