@@ -39,8 +39,14 @@ const router = createRouter({
       name: "botindicators",
       component: () => import("../views/BotIndicatorsView.vue"),
     },
+    {
+      path: "/dashboard/:id",
+      name: "dashboardid",
+      component: () => import("../views/BotStatsView.vue"),
+    }
   ],
   linkActiveClass: "active",
+  linkExactActiveClass: "active",
 });
 
 export default router;

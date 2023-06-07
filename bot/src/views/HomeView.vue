@@ -2,6 +2,7 @@
 import axios from "axios";
 import { onMounted } from "vue";
 import { ref } from "vue";
+import { RouterView, RouterLink } from "vue-router";
 
 const balance = ref();
 
@@ -25,17 +26,17 @@ onMounted(() => {
     </div>
     <div class="content-home">
       <span>Aquí DOT{{ balance }}</span>
-      <RouterLink to="/dashboard">
+      <router-link to="/dashboard">
         <button class="img-btn-home">
           <img class="dashboard-home" />Panel de control
         </button>
-      </RouterLink>
-      <RouterLink to="/bot">
+      </router-link>
+      <router-link to="/bot">
         <button class="img-btn-home"><img class="bot-home" />Bot</button>
-      </RouterLink>
-      <RouterLink to="/consejo">
+      </router-link>
+      <router-link to="/consejo">
         <button class="img-btn-home"><img class="advise-home" />Consejo</button>
-      </RouterLink>
+      </router-link>
     </div>
   </div>
   <RouterView />

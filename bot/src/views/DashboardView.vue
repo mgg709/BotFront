@@ -1,29 +1,16 @@
 <script setup>
 import NavBar from "../components/NavBar.vue";
 import CardDS from "../components/CardDS.vue";
-import LateralMenu from "../components/LateralMenu.vue";
+import { RouterLink } from "vue-router";
 </script>
 <template>
   <section class="content-dashboard">
     <NavBar class="ajuste"></NavBar>
-    <LateralMenu class="ajuste-lateral"></LateralMenu>
     <div class="title-dashboard">
-      <span>CARTERA LOREM</span>
+      <h1>Dashboard</h1>
     </div>
     <div class="datos">
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-      <CardDS class="tarjeta-dashboard"></CardDS>
-
+      <router-link class="link" to="/dashboard/2"><CardDS class="tarjeta-dashboard"></CardDS></router-link>
       <button class="add">AÑADIR</button>
     </div>
   </section>
@@ -95,5 +82,9 @@ import LateralMenu from "../components/LateralMenu.vue";
   .title-dashboard {
     display: none;
   }
+}
+
+.link{
+  text-decoration: none;
 }
 </style>
