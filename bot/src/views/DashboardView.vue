@@ -2,11 +2,13 @@
 import NavBar from "../components/NavBar.vue";
 import CardDS from "../components/CardDS.vue";
 import { RouterLink } from "vue-router";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import axios from "axios";
 
 const botDcaList = ref([]);
 const botHoldList = ref([]);
+const hold = "HOLD";
+const dca = "DCA";
 
 const getBotsDca = async () => {
   try {
@@ -27,7 +29,11 @@ const getBotsHold = async () => {
   }
 }
 
-getBotsDca();
+onMounted(() => {
+  getBotsDca();
+  getBotsHold();
+})
+
 
 
 </script>
@@ -38,7 +44,8 @@ getBotsDca();
       <h1>Dashboard</h1>
     </div>
     <div class="datos">
-      <router-link v-for="bot in botDcaList" class="link" to="/dashboard/"><CardDS :bot="bot" class="tarjeta-dashboard"></CardDS></router-link>
+      <router-link v-for="bot in botDcaList" class="link" to="/dashboard/"><CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS></router-link>
+       <router-link v-for="bot in botHoldList" class="link" to="/dashboard/"><CardDS :bot="bot" :type="hold" class="tarjeta-dashboard"></CardDS></router-link>
     </div>
   </section>
 </template>
