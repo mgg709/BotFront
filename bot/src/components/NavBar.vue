@@ -55,12 +55,6 @@
   font-weight: 700;
 }
 
-.elements-a {
-  color: #3777e1;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  text-decoration: none;
-}
 
 .separator {
   width: 1px;

@@ -25,8 +25,7 @@ onMounted(() => {
       <span>NEXUS BOT</span>
     </div>
     <div class="content-home">
-      <span>Aquí DOT{{ balance }}</span>
-      <router-link to="/dashboard">
+      <router-link to="/dashboard" class="router-link-active">
         <button class="img-btn-home">
           <img class="dashboard-home" />Panel de control
         </button>

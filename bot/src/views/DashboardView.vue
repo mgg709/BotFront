@@ -2,6 +2,34 @@
 import NavBar from "../components/NavBar.vue";
 import CardDS from "../components/CardDS.vue";
 import { RouterLink } from "vue-router";
+import { ref } from "vue";
+import axios from "axios";
+
+const botDcaList = ref([]);
+const botHoldList = ref([]);
+
+const getBotsDca = async () => {
+  try {
+    const { data } = await axios.get("http://127.0.0.1:8000/botdca");
+    botDcaList.value = data;
+    console.log(botDcaList);
+  } catch (error){
+    console.log(error);
+  }
+}
+
+const getBotsHold = async () => {
+  try {
+    const { data } = await axios.get("http://127.0.0.1:8000/bothold");
+    botHoldList.value = data;
+  } catch (error){
+    console.log(error);
+  }
+}
+
+getBotsDca();
+
+
 </script>
 <template>
   <section class="content-dashboard">
@@ -10,8 +38,7 @@ import { RouterLink } from "vue-router";
       <h1>Dashboard</h1>
     </div>
     <div class="datos">
-      <router-link class="link" to="/dashboard/2"><CardDS class="tarjeta-dashboard"></CardDS></router-link>
-      <button class="add">AÑADIR</button>
+      <router-link v-for="bot in botDcaList" class="link" to="/dashboard/"><CardDS :bot="bot" class="tarjeta-dashboard"></CardDS></router-link>
     </div>
   </section>
 </template>

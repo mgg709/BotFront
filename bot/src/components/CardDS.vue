@@ -1,20 +1,51 @@
+<script setup>
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+const props = defineProps(['bot'])
+
+const precio = ref(0);
+const porcentaje = ref(0);
+
+const getPrecio = async () => {
+  try {
+    const { data } = await axios.get(`http://127.0.0.1:8000/price/${props.bot.symbol}`);
+    precio.value = data.price;
+    let porcentajeActual = precio.value * 100 / props.bot.last_price;
+    porcentaje.value = porcentajeActual - 100;
+    console.log(precio.value);
+  } catch(error) {
+    console.log(error);
+  }
+} 
+
+
+
+onMounted(() => {
+  getPrecio();
+  setInterval(getPrecio, 5 * 60 * 1000);
+})
+
+</script>
+
 <template>
   <div class="card">
-    <img class="coin" src="/src/assets/bitcoin.png" />
-    <section class="precio">65000</section>
-    <section class="porcentaje">2%</section>
+    <img :src="'/src/assets/' + bot.symbol+'.png'" class="coin">
+    <section class="precio">{{ Number(precio).toFixed(5) }}</section>
+    <section v-if="porcentaje > 0" class="porcentaje-positivo">{{ porcentaje.toFixed(2) }}%</section>
+    <section v-else class="porcentaje-negativo">{{ porcentaje.toFixed(2) }}%</section>
     <section class="mercado">SPOT</section>
     <section class="unidades">
-      <span class="label" id="label-1">Apertura</span>
-      <span class="dato" id="dato-1">45000</span>
+      <span class="label" id="label-1">Ultima compra</span>
+      <span class="dato" id="dato-1">{{ bot.last_price }}</span>
     </section>
     <section class="unidades">
-      <span class="label" id="label-2">Apertura</span>
-      <span class="dato" id="dato-2">45000</span>
+      <span class="label" id="label-2">Cantidad</span>
+      <span class="dato" id="dato-2">{{ bot.amount }}</span>
     </section>
     <section class="unidades">
-      <span class="label" id="label-3">Apertura</span>
-      <span class="dato" id="dato-3">45000</span>
+      <span class="label" id="label-3">Ordenes maximas</span>
+      <span class="dato" id="dato-3">{{ bot.max_orders }}</span>
     </section>
     <button class="close">CERRAR</button>
   </div>
@@ -45,9 +76,16 @@ img.coin {
   font-weight: 800;
   margin-right: 10px;
 }
-.porcentaje {
+.porcentaje-positivo {
   font-size: 1.8em;
   color: #24ff00;
+  font-weight: 800;
+  margin-right: 20px;
+}
+
+.porcentaje-negativo{
+  font-size: 1.8em;
+  color: red;
   font-weight: 800;
   margin-right: 20px;
 }
