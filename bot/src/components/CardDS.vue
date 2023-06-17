@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
-const props = defineProps(['bot'])
+const props = defineProps(['bot','type'])
 
 const precio = ref(0);
 const porcentaje = ref(0);
@@ -34,7 +34,7 @@ onMounted(() => {
     <section class="precio">{{ Number(precio).toFixed(5) }}</section>
     <section v-if="porcentaje > 0" class="porcentaje-positivo">{{ porcentaje.toFixed(2) }}%</section>
     <section v-else class="porcentaje-negativo">{{ porcentaje.toFixed(2) }}%</section>
-    <section class="mercado">SPOT</section>
+    <section class="mercado">{{ type }}</section>
     <section class="unidades">
       <span class="label" id="label-1">Ultima compra</span>
       <span class="dato" id="dato-1">{{ bot.last_price }}</span>
