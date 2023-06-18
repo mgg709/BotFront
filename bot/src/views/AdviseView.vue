@@ -1,6 +1,41 @@
 //@ts-nocheck
 <script setup>
+import { ref } from "vue";
 import NavBar from "../components/NavBar.vue";
+
+const amount = ref(0);
+const duration = ref(0);
+const loss = ref(0);
+let coins = ref("");
+let strategy_description= ref("");
+
+function recomendar() {
+  if (amount.value <= 1000) {
+    coins.value = "ATOM, LINK, DOT, ADA, MATIC"
+  }
+
+  if(amount.value > 1000 && amount.value <= 5000) {
+    coins.value = "ETH, PAXG, BNB, XMR"
+  }
+
+  if(amount.value > 5000) {
+    coins.value = "BTC, ETH, MKR, WBTC"
+  }
+
+  if (duration.value >= 60) {
+    strategy_description.value = "Es recomendable emplear un estrategia de hold que diversifique de manera correcta las compras que realices durante la inversión."
+  }
+
+  if (duration.value < 60) {
+    strategy_description.value = "Es recomendable emplear una estrategia de DCA que pueda sacar el máximo rendimiento posible en el corto periodo de tiempo. También se puede emplear una estrategia que emplee indicadores, pero para ello deberá de conocer su funcionamiento y saber que este no realiza las compras de forma automática, solo se encarga de envíar señales de compra y venta."
+  }
+  if(loss.value > 10) {
+    strategy_description.value = "En caso de arriesgar más del 10% de su capital, le recomendamos emplear una estrategia de hold, ya que tendrá margen de reacción a la hora de decidir si vender o no. Por tanto, en caso de pérdida, esperar 1 o 2 días más supondrá una pérdida mínima."
+  }
+  if (loss.value <= 10) {
+    strategy_description.value ="En este caso, emplear una estrategia de DCA se ajusta a sus objetivos, ya que a través del stop loss podrá reducir la pérdida al porcentaje deseado. Tenga en cuenta que si emplea una estrategia de indicadores deberá de controlar las compras de forma manual, por tanto, en caso de no disponer del tiempo necesario, le recomendamos emplear una estrategia de DCA. Además, si considera que posee el conocimiento adecuado, puede emplear el apalancamiento para aumentar sus ganancias."
+  }
+}
 </script>
 <template>
   <div class="content-advise">
@@ -19,31 +54,22 @@ import NavBar from "../components/NavBar.vue";
         <form action="" method="post" id="form-advise">
           <p>FORMULARIO</p>
           <label for="cantidad">Cantidad que desea invertir</label>
-          <input type="number" name="cantidad" id="cantidad" />
-          <label for="estrategia">Estrategia de la inversión</label>
-          <div class="botones-advise">
-            <button id="estrategia-corto">Corto plazo</button>
-            <button id="estrategia-largo">Largo plazo</button>
-          </div>
+          <input type="number" name="cantidad" id="cantidad" v-model="amount"/>
           <label for="duracion">Duración estimada de la inversión</label>
           <div class="duration">
-            <input type="number" name="dias" id="dias" />
+            <input type="number" name="dias" id="dias" v-model="duration"/>
             <label for="horas">Días</label>
-            <input type="number" name="horas" id="horas" />
-            <label for="dias">Horas</label>
           </div>
           <label for="perdida">Perdida máxima de la inversión</label>
-          <input type="number" name="perdida" id="perdida" />
-          <input type="submit" value="Enviar" id="enviar" />
+          <input type="number" name="perdida" id="perdida" v-model="loss"/>
+          <input type="submit" value="Enviar" id="enviar" @click.prevent="recomendar()" />
         </form>
       </section>
       <div class="resultado-advise">
         <p>DEBERÍA INVERTIR EN</p>
-        <span></span>
+        <span>{{ coins }}</span>
         <p>MONEDA/S</p>
-        <span></span>
-        <p>MERCADO</p>
-        <span></span>
+        <span>{{ strategy_description }}</span>
         <p>ESTRATEGIA</p>
       </div>
     </div>
@@ -93,10 +119,9 @@ import NavBar from "../components/NavBar.vue";
   background: linear-gradient(to bottom, #363636, #141313);
   border: 1px solid #545353;
   width: 30%;
-  height: 70%;
   border-radius: 5px;
   margin-bottom: 100px;
-  padding-top: 20px;
+  padding: 20px 0px;
 }
 
 #form-advise {
@@ -141,9 +166,8 @@ import NavBar from "../components/NavBar.vue";
   align-items: center;
 }
 
-#horas,
 #dias {
-  width: 80px !important;
+  width: 200px !important;
   height: 20px !important;
 }
 
@@ -162,6 +186,10 @@ import NavBar from "../components/NavBar.vue";
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.botones-advise button{
+  cursor: pointer;
 }
 
 #enviar {
@@ -194,11 +222,16 @@ import NavBar from "../components/NavBar.vue";
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  color: white;
 }
 
-.resultado-advise span {
-  width: 10vw;
-  height: 20vh;
-  background: gray;
+.resultado-advise span{
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+  color: greenyellow;
 }
+
 </style>
