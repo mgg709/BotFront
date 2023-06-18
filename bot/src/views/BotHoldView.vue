@@ -1,5 +1,50 @@
 <script setup>
+import { ref } from "vue";
 import NavBar from "../components/NavBar.vue";
+import axios from "axios";
+
+const name = ref("");
+const description = ref("");
+const symbol = ref("");
+const amount = ref(0);
+const max_orders = ref(0);
+const frecuency = ref(0);
+
+const bot = ref({
+  name: name.value,
+  description: description.value,
+  symbol: symbol.value,
+  amount: amount.value,
+  frecuency: frecuency.value,
+  max_orders: max_orders.value,
+  
+});
+
+
+const createBot = async () => {
+  bot.value = {
+    name: name.value,
+  description: description.value,
+  symbol: symbol.value,
+  amount: amount.value,
+  frecuency: frecuency.value,
+  max_orders: max_orders.value,
+  };
+
+  try {
+    console.log(JSON.stringify(bot.value));
+
+    const { data } = await axios.post("http://127.0.0.1:8000/bothold/create", bot.value, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(data);
+  } catch (error){
+    console.log(error);
+  }
+  
+};
 </script>
 <template>
   <div class="container-bothold">
@@ -12,9 +57,9 @@ import NavBar from "../components/NavBar.vue";
           <div class="form-settings-bothold">
             <form>
               <label for="name">Nombre</label>
-              <input type="text" name="nombre" />
+              <input type="text" name="nombre" v-model="name"/>
               <label for="description">Descripcion</label>
-              <textarea name="description" cols="30" rows="5"></textarea>
+              <textarea name="description" cols="30" rows="5" v-model="description"></textarea>
             </form>
           </div>
         </div>
@@ -23,20 +68,24 @@ import NavBar from "../components/NavBar.vue";
           <div class="form-strategy-bothold">
             <form action="">
               <label for="par">Par criptomoneda</label>
-              <input type="text" name="par" />
+              <input type="text" name="par" v-model="symbol"/>
               <div class="row1-bothold">
                 <label for="quantity" id="quantity-bothold">Cantidad</label>
                 <label for="frequency">Frecuencia</label>
               </div>
               <div class="row2-bothold">
-                <input type="number" name="quantity" />
-                <input type="date" name="frequency" />
+                <input type="number" name="quantity" v-model="amount"/>
+                <input type="text" name="frequency" v-model="frecuency"/>
+              </div>
+              <div class="row-form">
+                <label for="order">Nº Máx. Órdenes</label>
+                <input type="number" name="order" v-model="max_orders" />
               </div>
             </form>
           </div>
         </div>
         <div class="button-bothold">
-          <input type="submit" value="Crear bot" />
+          <input type="submit" value="Crear bot" @click="createBot"/>
         </div>
       </section>
       <section class="right-side-bothold">
@@ -148,6 +197,7 @@ import NavBar from "../components/NavBar.vue";
   height: 20px;
   width: 250px;
   margin-bottom: 8px;
+  color: white;
 }
 
 .form-settings-bothold form textarea {
@@ -156,6 +206,7 @@ import NavBar from "../components/NavBar.vue";
   border: none;
   margin-bottom: 8px;
   resize: none;
+  color: white;
 }
 
 /* Formulario estrategia */
@@ -204,6 +255,7 @@ import NavBar from "../components/NavBar.vue";
   height: 20px;
   width: 250px;
   margin-bottom: 8px;
+  color: white;
 }
 
 #quantity-bothold {
@@ -297,5 +349,13 @@ import NavBar from "../components/NavBar.vue";
   background: gray;
   margin: auto;
   margin-top: 20px;
+}
+
+.row-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
 }
 </style>

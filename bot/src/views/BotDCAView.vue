@@ -1,5 +1,55 @@
 <script setup>
+import { ref } from "vue";
 import NavBar from "../components/NavBar.vue";
+import axios from "axios";
+
+const name = ref("");
+const description = ref("");
+const symbol = ref("");
+const amount = ref(0);
+const condition = ref(0);
+const max_orders = ref(0);
+const take_profit = ref(0);
+const stop_loss = ref(0);
+
+const bot = ref({
+  name: name.value,
+  description: description.value,
+  symbol: symbol.value,
+  amount: amount.value,
+  condition: condition.value,
+  max_orders: max_orders.value,
+  take_profit: take_profit.value,
+  stop_loss: stop_loss.value,
+});
+
+
+const createBot = async () => {
+  bot.value = {
+    name: name.value,
+    description: description.value,
+    symbol: symbol.value,
+    amount: amount.value,
+    condition: condition.value,
+    max_orders: max_orders.value,
+    take_profit: take_profit.value,
+    stop_loss: stop_loss.value,
+  };
+
+  try {
+    console.log(JSON.stringify(bot.value));
+
+    const { data } = await axios.post("http://127.0.0.1:8000/botdca/create", bot.value, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(data);
+  } catch (error){
+    console.log(error);
+  }
+  
+};
 </script>
 <template>
   <NavBar class="ajuste"></NavBar>
@@ -12,13 +62,14 @@ import NavBar from "../components/NavBar.vue";
           <div class="form-items">
             <form>
               <label for="name">Nombre</label>
-              <input type="text" name="name" id="name" />
+              <input type="text" name="name" id="name" v-model="name"/>
               <label for="description">Descripcion</label>
               <textarea
                 name="description"
                 id="description"
                 cols="30"
-                rows="5"></textarea>
+                rows="5"
+                v-model="description"></textarea>
             </form>
           </div>
           <div class="guide-left-botdca">
@@ -40,14 +91,14 @@ import NavBar from "../components/NavBar.vue";
         <div class="strategy-right-form-botdca">
           <form action="">
             <label for="par">Par criptomoneda</label>
-            <input type="text" name="par" id="par" />
+            <input type="text" name="par" id="par" v-model="symbol"/>
             <div class="table">
               <div class="row-1">
                 <label for="quantity" id="quantity-l">Cantidad</label>
                 <label for="order" id="order-l">Tipo de orden</label>
               </div>
               <div class="row-2">
-                <input type="number" name="quantity" id="quantity" />
+                <input type="number" name="quantity" id="quantity" v-model="amount"/>
                 <input type="text" name="order" id="order" />
               </div>
               <div class="row-3">
@@ -56,21 +107,21 @@ import NavBar from "../components/NavBar.vue";
               </div>
               <div class="row-4">
                 <input type="text" name="market" id="market" />
-                <input type="text" name="condition" id="condition" />
+                <input type="text" name="condition" id="condition" v-model="condition" />
               </div>
             </div>
             <label for="max-orders">Nº Max. Órdenes</label>
-            <input type="number" name="max-orders" id="max-orders" />
+            <input type="number" name="max-orders" id="max-orders" v-model="max_orders"/>
             <label for="tp">Take profit</label>
-            <input type="number" name="tp" id="tp" />
+            <input type="number" name="tp" id="tp" v-model="take_profit"/>
             <label for="sl">Stop loss</label>
-            <input type="number" name="sl" id="sl" />
+            <input type="number" name="sl" id="sl" v-model="stop_loss"/>
           </form>
         </div>
       </section>
     </div>
     <div class="button-submit-botdca">
-      <input type="submit" value="Crear bot" />
+      <input type="submit" value="Crear bot" @click="createBot()" />
     </div>
   </div>
 </template>
