@@ -32,12 +32,12 @@ onMounted(() => {
   <div class="card">
     <img :src="'/src/assets/' + bot.symbol+'.png'" class="coin">
     <section class="precio">{{ Number(precio).toFixed(5) }}</section>
-    <section v-if="porcentaje > 0" class="porcentaje-positivo">{{ porcentaje.toFixed(2) }}%</section>
-    <section v-else class="porcentaje-negativo">{{ porcentaje.toFixed(2) }}%</section>
+    <section v-if="porcentaje > 0 && bot.last_price"  class="porcentaje-positivo">{{ porcentaje.toFixed(2) }}%</section>
+    <section v-if="porcentaje <= 0 && bot.last_price" class="porcentaje-negativo">{{ porcentaje.toFixed(2) }}%</section>
     <section class="mercado">{{ type }}</section>
     <section class="unidades">
       <span class="label" id="label-1">Ultima compra</span>
-      <span class="dato" id="dato-1">{{ bot.last_price }}</span>
+      <span class="dato" id="dato-1" >{{ bot.last_price }}</span>
     </section>
     <section class="unidades">
       <span class="label" id="label-2">Cantidad</span>
