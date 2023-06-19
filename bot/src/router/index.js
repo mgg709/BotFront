@@ -38,7 +38,7 @@ const routes= [
       component: () => import("../views/BotIndicatorsView.vue"),
     },
     {
-      path: "/dashboard/name",
+      path: "/dashboard/:name",
       name: "dashboardid",
       component: () => import("../views/BotStatsView.vue"),
     }

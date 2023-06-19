@@ -1,3 +1,4 @@
+// @ts-ignore
 <script setup>
 import NavBar from "../components/NavBar.vue";
 import CardDS from "../components/CardDS.vue";
@@ -36,6 +37,7 @@ onMounted(() => {
 
 
 
+// @ts-ignore
 </script>
 <template>
   <section class="content-dashboard">
@@ -44,7 +46,10 @@ onMounted(() => {
       <h1>Dashboard</h1>
     </div>
     <div class="datos">
-      <router-link v-for="bot in botDcaList" class="link" to="/dashboard/name" :key="bot"><CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS></router-link>
+      <span v-for="bot in botDcaList">
+        <router-link class="link" :to="`/dashboard/${bot.name}`" ><CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS></router-link>
+      </span>
+      
        <router-link v-for="bot in botHoldList" class="link" to="/dashboard/"><CardDS :bot="bot" :type="hold" class="tarjeta-dashboard"></CardDS></router-link>
     </div>
   </section>
