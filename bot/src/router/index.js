@@ -39,7 +39,7 @@ const routes= [
     },
     {
       path: "/dashboard/:name",
-      name: "dashboardid",
+      name: "botstats",
       component: () => import("../views/BotStatsView.vue"),
     }
   ]

@@ -37,7 +37,6 @@ const createBot = async () => {
   };
 
   try {
-    console.log(JSON.stringify(bot.value));
 
     const { data } = await axios.post("http://127.0.0.1:8000/botdca/create", bot.value, {
       headers: {
