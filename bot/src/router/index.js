@@ -38,9 +38,9 @@ const routes= [
       component: () => import("../views/BotIndicatorsView.vue"),
     },
     {
-      path: "/dashboard/:name",
+      path: "/dashboard/botdca/:name",
       name: "botstats",
-      component: () => import("../views/BotStatsView.vue"),
+      component: () => import("../views/BotDcaStatsView.vue"),
     }
   ]
 const router = createRouter({

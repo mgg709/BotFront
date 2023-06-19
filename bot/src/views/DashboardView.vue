@@ -47,7 +47,7 @@ onMounted(() => {
     </div>
     <div class="datos">
       <span v-for="bot in botDcaList">
-        <router-link class="link" :to="`/dashboard/${bot.name}`" ><CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS></router-link>
+        <router-link class="link" :to="`/dashboard/botdca/${bot.name}`" ><CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS></router-link>
       </span>
       
        <router-link v-for="bot in botHoldList" class="link" to="/dashboard/"><CardDS :bot="bot" :type="hold" class="tarjeta-dashboard"></CardDS></router-link>
