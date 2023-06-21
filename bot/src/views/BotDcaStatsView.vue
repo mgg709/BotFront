@@ -4,7 +4,6 @@ import NavBar from "../components/NavBar.vue";
 import { useRoute } from "vue-router";
 import { onBeforeMount, onMounted, ref } from "vue";
 
-// @ts-ignore
 const route = useRoute();
 const bot = ref({});
 
