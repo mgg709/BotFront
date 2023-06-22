@@ -12,16 +12,7 @@ const max_orders = ref(0);
 const take_profit = ref(0);
 const stop_loss = ref(0);
 
-const bot = ref({
-  name: name.value,
-  description: description.value,
-  symbol: symbol.value,
-  amount: amount.value,
-  condition: condition.value,
-  max_orders: max_orders.value,
-  take_profit: take_profit.value,
-  stop_loss: stop_loss.value,
-});
+const bot = ref({});
 
 
 const createBot = async () => {
@@ -74,13 +65,7 @@ const createBot = async () => {
           <div class="guide-left-botdca">
             <p>¿Cómo funciona?</p>
             <div class="guide-container-botdca">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum
-              cupiditate non maxime ipsum minima amet. Libero, optio nihil?
-              Ullam error distinctio eligendi consequatur quod enim dolorem ex
-              nihil repudiandae. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Explicabo natus odio dolore exercitationem quod
-              commodi in, suscipit amet. Dolorum consectetur veniam aperiam
-              minima assumenda in nostrum sunt iusto eius porro?.
+              Este tipo de bot utiliza una estrategia DCA, es decir, Dollar Cost Averaging. DCA implica dividir la cantidad de dinero a invertir en un número de compras, lo que permite aprovechar las fluctuaciones del mercado para adquirir más activos cuando los precios son bajos y menos activos cuando los precios son altos. Esta estrategia busca promediar el costo de adquisición a lo largo del tiempo, en lugar de intentar predecir los movimientos del mercado. De esta forma, la volatilidad de la inversión se reduce.
             </div>
           </div>
         </div>
@@ -91,24 +76,16 @@ const createBot = async () => {
           <form action="">
             <label for="par">Par criptomoneda</label>
             <input type="text" name="par" id="par" v-model="symbol"/>
-            <div class="table">
-              <div class="row-1">
                 <label for="quantity" id="quantity-l">Cantidad</label>
-                <label for="order" id="order-l">Tipo de orden</label>
-              </div>
-              <div class="row-2">
+             
                 <input type="number" name="quantity" id="quantity" v-model="amount"/>
-                <input type="text" name="order" id="order" />
-              </div>
-              <div class="row-3">
-                <label for="market">Mercado</label>
+
                 <label for="condition" id="condition-l">Condición</label>
-              </div>
-              <div class="row-4">
-                <input type="text" name="market" id="market" />
+
+      
                 <input type="text" name="condition" id="condition" v-model="condition" />
-              </div>
-            </div>
+
+
             <label for="max-orders">Nº Max. Órdenes</label>
             <input type="number" name="max-orders" id="max-orders" v-model="max_orders"/>
             <label for="tp">Take profit</label>
@@ -234,7 +211,7 @@ const createBot = async () => {
   flex-wrap: wrap;
   overflow-y: auto;
   background: linear-gradient(to bottom, #363636, #141313);
-  width: 70%;
+  width: 75%;
   height: 33vh;
   border: 1px solid #545353;
   border-radius: 5px;
@@ -296,27 +273,7 @@ const createBot = async () => {
   margin-bottom: 12px;
 }
 
-.strategy-right-form-botdca .row-1,
-.row-3 {
-  margin-bottom: 5px;
-}
-.strategy-right-form-botdca #order-l {
-  margin-left: 65px;
-}
 
-.strategy-right-form-botdca .row-2 input {
-  width: 40%;
-  margin-right: 25px;
-}
-
-.strategy-right-form-botdca .row-4 input {
-  width: 40%;
-  margin-right: 25px;
-}
-
-.strategy-right-form-botdca #condition-l {
-  margin-left: 69px;
-}
 
 /* Boton crear bot */
 

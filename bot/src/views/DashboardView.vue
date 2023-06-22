@@ -6,6 +6,7 @@ import { RouterLink } from "vue-router";
 import { onMounted, ref } from "vue";
 import axios from "axios";
 
+
 const botDcaList = ref([]);
 const botHoldList = ref([]);
 const hold = "HOLD";
@@ -15,7 +16,6 @@ const getBotsDca = async () => {
   try {
     const { data } = await axios.get("http://127.0.0.1:8000/botdca");
     botDcaList.value = data;
-    console.log(botDcaList);
   } catch (error){
     console.log(error);
   }
@@ -23,7 +23,7 @@ const getBotsDca = async () => {
 
 const getBotsHold = async () => {
   try {
-    const { data } = await axios.get("http://127.0.0.1:8000/bothold");
+    const { data }  = await axios.get("http://127.0.0.1:8000/bothold");
     botHoldList.value = data;
   } catch (error){
     console.log(error);
@@ -47,7 +47,9 @@ onMounted(() => {
     </div>
     <div class="datos">
       <span v-for="bot in botDcaList">
-        <router-link class="link" :to="`/dashboard/botdca/${bot.name}`" ><CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS></router-link>
+        <router-link class="link" :to="`/dashboard/botdca/${bot.name}`" >
+          <CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS>
+        </router-link>
       </span>
       
        <router-link v-for="bot in botHoldList" class="link" to="/dashboard/"><CardDS :bot="bot" :type="hold" class="tarjeta-dashboard"></CardDS></router-link>

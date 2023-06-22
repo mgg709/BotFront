@@ -47,7 +47,7 @@ onMounted(() => {
       <span class="label" id="label-3">Ordenes maximas</span>
       <span class="dato" id="dato-3">{{ bot.max_orders }}</span>
     </section>
-    <button class="close">CERRAR</button>
+    <button class="close">ELIMINAR</button>
   </div>
 </template>
 <style>
