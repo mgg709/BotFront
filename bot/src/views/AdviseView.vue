@@ -41,13 +41,7 @@ function recomendar() {
   <div class="content-advise">
     <NavBar class="ajuste"></NavBar>
     <p class="explicacion-advise">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-      voluptates! Sit voluptate consectetur magnam consequatur id consequuntur
-      repudiandae suscipit repellendus dolor tenetur quis, blanditiis dicta
-      accusamus distinctio totam a eaque. Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Ea soluta similique explicabo cupiditate aut distinctio
-      quidem quam tempore, error dicta atque maxime molestias possimus pariatur
-      eius.
+      Rellenando el formulario que se muestra a continuación, puede recibir una recomendación sobre qué monedas debe elegir para su inversión y qué estrategia debe emplear. Este sistema tendrá en cuenta los parámetros introducidos por el usuario para generar los resultados. Actualmente se encuentra en fase Alpha. La pérdida máxima debe indicarse en porcentaje.
     </p>
     <div class="subcontainer-advise">
       <section class="formulario-advise">
@@ -223,6 +217,7 @@ function recomendar() {
   align-items: center;
   margin-bottom: 30px;
   color: white;
+  text-align: justify;
 }
 
 .resultado-advise span{

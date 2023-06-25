@@ -2,11 +2,15 @@
 import axios from "axios";
 import NavBar from "../components/NavBar.vue";
 import { useRoute } from "vue-router";
+// @ts-ignore
 import { onBeforeMount, onMounted, ref } from "vue";
 
+// @ts-ignore
 const route = useRoute();
 const bot = ref({});
-
+const messages = ref([]);
+const operation = ref({});
+let iniciada = false;
 
 const getBot = async () => {
   try {
@@ -26,11 +30,50 @@ const updateBot = async () => {
   }
 }
 
+const createOperation = async () => {
+  try {
+    operation.value = {
+      // @ts-ignore
+      bot_name: bot.value.name
+    }
+    const { data } = await axios.post("http://127.0.0.1:8000/operationdca/create", operation.value, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(data);
+    // @ts-ignore
+    messages.value.push("Operacion creada");
+    operation.value = data.value; 
+  }catch(error){
+    console.log(error);
+  }
+}
+
+const startOperation = async () => {
+  try {
+    const { data } = await axios.post(`http://127.0.0.1:8000/operationdca/start/${route.params.name}`);
+    messages.value.push(data);
+    iniciada = true;
+  }catch(error){
+    console.log(error);
+  }
+}
+
+const stopOperation = async () => {
+  try {
+    const { data } = await axios.post(`http://127.0.0.1:8000/operationdca/stop/${route.params.name}`);
+    messages.value.push(data);
+    iniciada = false;
+  }catch(error){
+    console.log(error);
+  }
+}
 
 onBeforeMount(() => {
   getBot();
 });
-// @ts-ignore
+
 </script>
 <template>
   <NavBar class="ajuste"></NavBar>
@@ -53,7 +96,16 @@ onBeforeMount(() => {
       </form>
     </section>
     <section class="stats-bot">
-      <span>El bot ha realizado la operación tal</span>
+      <span> OPERACION </span>
+      <div class="stats-control-buttons">
+         <button class="create" @click="createOperation()" v-if="operation != undefined">CREAR</button>
+         <button class="start" @click="startOperation()" v-if="iniciada == false">INICIAR</button>
+         <button class="stop" @click="stopOperation()" v-if="iniciada == true">PARAR</button>
+      </div>
+      <div class="stats-messages">
+        <span> MENSAJES </span>
+        <p v-for="message in messages">{{ message }}</p>
+      </div>
     </section>
   </section>
 </template>
@@ -126,10 +178,98 @@ onBeforeMount(() => {
 .stats-bot{
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   height: 100%;
   margin-left: 50px;
   color: white;
   font-size: 18px;
 }
+
+.stats-control-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.stats-bot .create{
+   display: block;
+  color: white;
+  background: linear-gradient(#3777e1, #003b9c);
+  border-width: 0;
+  border-radius: 7px;
+  min-width: 150px;
+  min-height: 40px;
+  box-shadow: 2px 2px 5px black;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: center;
+}
+
+.stats-bot .create:hover {
+  cursor: pointer;
+  background: #003b9c;
+}
+
+.stats-bot .start{
+   display: block;
+  color: white;
+  background: linear-gradient(#3ae137, #009c17);
+  border-width: 0;
+  border-radius: 7px;
+  min-width: 150px;
+  min-height: 40px;
+  box-shadow: 2px 2px 5px black;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: center;
+}
+
+.stats-bot .start:hover {
+  cursor: pointer;
+  background: #0a9c00;
+}
+
+.stats-bot .stop{
+   display: block;
+  color: white;
+  background: linear-gradient(#e13737, #9c0000);
+  border-width: 0;
+  border-radius: 7px;
+  min-width: 150px;
+  min-height: 40px;
+  box-shadow: 2px 2px 5px black;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: center;
+}
+
+.stats-bot .stop:hover {
+  cursor: pointer;
+  background: #9c0000;
+}
+
+.stats-messages{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px; ;
+}
+
+.stats-messages p{
+  color: #d5f716;
+}
+
 </style>
