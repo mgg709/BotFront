@@ -19,10 +19,28 @@ const getPrecio = async () => {
   }
 } 
 
-
+const getLastPrice = async () => {
+  try {
+    let data;
+    if (props.type == "DCA") {
+      data = await axios.get(`http://127.0.0.1:8000/botdca/${props.bot.name}`);
+      console.log(data);
+      props.bot.last_price = data.data.last_price;
+    } else if (props.type == "HOLD") {
+      data = await axios.get(`http://127.0.0.1:8000/bothold/${props.bot.name}`);
+      props.bot.last_price = data.data.last_price;
+    } else {
+      data = await axios.get(`http://127.0.0.1:8000/botict/${props.bot.name}`);
+      props.bot.last_price = data.data.last_price;
+    }
+  }catch(error) {
+    console.log(error);
+  }
+}
 
 onMounted(() => {
   getPrecio();
+  getLastPrice();
   setInterval(getPrecio, 5 * 60 * 1000);
 })
 
@@ -37,7 +55,7 @@ onMounted(() => {
     <section class="mercado">{{ type }}</section>
     <section class="unidades">
       <span class="label" id="label-1">Ultima compra</span>
-      <span class="dato" id="dato-1" >{{ bot.last_price }}</span>
+      <span class="dato" id="dato-1" v-if="bot.last_price" >{{ bot.last_price.toFixed(3) }}</span>
     </section>
     <section class="unidades">
       <span class="label" id="label-2">Cantidad</span>

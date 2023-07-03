@@ -9,8 +9,10 @@ import axios from "axios";
 
 const botDcaList = ref([]);
 const botHoldList = ref([]);
+const botIctList = ref([]);
 const hold = "HOLD";
 const dca = "DCA";
+const ict = "ICT";
 
 const getBotsDca = async () => {
   try {
@@ -30,9 +32,19 @@ const getBotsHold = async () => {
   }
 }
 
+const getBotsIct = async () => {
+  try {
+    const { data }  = await axios.get("http://127.0.0.1:8000/botict");
+    botIctList.value = data;
+  } catch (error){
+    console.log(error);
+  }
+}
+
 onMounted(() => {
   getBotsDca();
   getBotsHold();
+  getBotsIct();
 })
 
 
@@ -46,13 +58,21 @@ onMounted(() => {
       <h1>Dashboard</h1>
     </div>
     <div class="datos">
-      <span v-for="bot in botDcaList">
-        <router-link class="link" :to="`/dashboard/botdca/${bot.name}`" >
-          <CardDS :bot="bot" :type="dca" class="tarjeta-dashboard"></CardDS>
+      <span v-for="botdca in botDcaList">
+        <router-link class="link" :to="`/dashboard/botdca/${botdca.name}`" >
+          <CardDS :bot="botdca" :type="dca" class="tarjeta-dashboard"></CardDS>
         </router-link>
       </span>
-      
-       <router-link v-for="bot in botHoldList" class="link" to="/dashboard/"><CardDS :bot="bot" :type="hold" class="tarjeta-dashboard"></CardDS></router-link>
+      <span v-for="bothold in botHoldList">
+        <router-link class="link" :to="`/dashboard/bothold/${bothold.name}`" >
+          <CardDS :bot="bothold" :type="hold" class="tarjeta-dashboard"></CardDS>
+        </router-link>
+      </span>
+      <span v-for="botict in botIctList">
+        <router-link class="link" :to="`/dashboard/botict/${botict.name}`" >
+          <CardDS :bot="botict" :type="ict" class="tarjeta-dashboard"></CardDS>
+        </router-link>
+      </span>
     </div>
   </section>
 </template>

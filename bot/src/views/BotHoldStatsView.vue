@@ -1,22 +1,23 @@
 <script setup>
 import axios from "axios";
+// @ts-ignore
 import NavBar from "../components/NavBar.vue";
 import { useRoute } from "vue-router";
-// @ts-ignore
 import { onBeforeMount, onMounted, ref } from "vue";
 
-// @ts-ignore
 const route = useRoute();
 const bot = ref({});
 const messages = ref([]);
 const operation = ref({});
 let iniciada = false;
+const frecuency = ref(0);
 const operationExist = ref(false);
 
 const getBot = async () => {
   try {
-    const { data } = await axios.get(`http://127.0.0.1:8000/botdca/${route.params.name}`);
+    const { data } = await axios.get(`http://127.0.0.1:8000/bothold/${route.params.name}`);
     bot.value = data;
+    frecuency.value = (data.frecuency / 86400);
   } catch(error){
     console.log(error);
   }
@@ -24,7 +25,7 @@ const getBot = async () => {
 
 const updateBot = async () => {
   try {
-    const { data } = await axios.put(`http://127.0.0.1:8000/botdca/${route.params.name}`, bot.value);
+    const { data } = await axios.put(`http://127.0.0.1:8000/bothold/${route.params.name}`, bot.value);
     console.log(data);
   }catch(error){
     console.log(error);
@@ -37,7 +38,7 @@ const createOperation = async () => {
       // @ts-ignore
       bot_name: bot.value.name
     }
-    const { data } = await axios.post("http://127.0.0.1:8000/operationdca/create", operation.value, {
+    const { data } = await axios.post("http://127.0.0.1:8000/operationhold/create", operation.value, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -53,7 +54,7 @@ const createOperation = async () => {
 
 const startOperation = async () => {
   try {
-    const { data } = await axios.post(`http://127.0.0.1:8000/operationdca/start/${route.params.name}`);
+    const { data } = await axios.post(`http://127.0.0.1:8000/operationhold/start/${route.params.name}`);
     messages.value.push(data);
     iniciada = true;
   }catch(error){
@@ -63,7 +64,7 @@ const startOperation = async () => {
 
 const stopOperation = async () => {
   try {
-    const { data } = await axios.post(`http://127.0.0.1:8000/operationdca/stop/${route.params.name}`);
+    const { data } = await axios.post(`http://127.0.0.1:8000/operationhold/stop/${route.params.name}`);
     messages.value.push(data);
     iniciada = false;
   }catch(error){
@@ -72,13 +73,14 @@ const stopOperation = async () => {
 }
 
 const getOperation = async () => {
-  const { data } = await axios.get(`http://127.0.0.1:8000/operationdca/${route.params.name}`);
+  const { data } = await axios.get(`http://127.0.0.1:8000/operationhold/${route.params.name}`);
   operationExist.value = data;
+  console.log(operationExist);
 }
 
 onBeforeMount(() => {
   getBot();
-  getOperation();
+  getOperation(); 
 });
 
 </script>
@@ -95,8 +97,8 @@ onBeforeMount(() => {
         <input type="text" name="par" id=""  v-model="bot.symbol">
         <label for="amount">Cantidad</label>
         <input type="number" name="amount" id=""  v-model="bot.amount">
-        <label for="condition">Condicion</label>
-        <input type="number" name="condition" id=""  v-model="bot.condition" step="any">
+        <label for="condition">Frecuencia</label>
+        <input type="number" name="condition" id=""  v-model="frecuency" step="any">
         <label for="max_orders">Maximo de ordenes</label>
         <input type="number" name="max_orders" id=""  v-model="bot.max_orders">
         <button @click="updateBot()">Guardar</button>

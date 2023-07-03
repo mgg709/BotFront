@@ -15,7 +15,7 @@ const operationExist = ref(false);
 
 const getBot = async () => {
   try {
-    const { data } = await axios.get(`http://127.0.0.1:8000/botdca/${route.params.name}`);
+    const { data } = await axios.get(`http://127.0.0.1:8000/botict/${route.params.name}`);
     bot.value = data;
   } catch(error){
     console.log(error);
@@ -24,7 +24,7 @@ const getBot = async () => {
 
 const updateBot = async () => {
   try {
-    const { data } = await axios.put(`http://127.0.0.1:8000/botdca/${route.params.name}`, bot.value);
+    const { data } = await axios.put(`http://127.0.0.1:8000/botict/${route.params.name}`, bot.value);
     console.log(data);
   }catch(error){
     console.log(error);
@@ -34,16 +34,14 @@ const updateBot = async () => {
 const createOperation = async () => {
   try {
     operation.value = {
-      // @ts-ignore
       bot_name: bot.value.name
     }
-    const { data } = await axios.post("http://127.0.0.1:8000/operationdca/create", operation.value, {
+    const { data } = await axios.post("http://127.0.0.1:8000/operationict/create", operation.value, {
       headers: {
         "Content-Type": "application/json",
       },
     });
     console.log(data);
-    // @ts-ignore
     messages.value.push("Operacion creada");
     operation.value = data.value; 
   }catch(error){
@@ -53,7 +51,7 @@ const createOperation = async () => {
 
 const startOperation = async () => {
   try {
-    const { data } = await axios.post(`http://127.0.0.1:8000/operationdca/start/${route.params.name}`);
+    const { data } = await axios.post(`http://127.0.0.1:8000/operationict/start/${route.params.name}`);
     messages.value.push(data);
     iniciada = true;
   }catch(error){
@@ -63,7 +61,7 @@ const startOperation = async () => {
 
 const stopOperation = async () => {
   try {
-    const { data } = await axios.post(`http://127.0.0.1:8000/operationdca/stop/${route.params.name}`);
+    const { data } = await axios.post(`http://127.0.0.1:8000/operationict/stop/${route.params.name}`);
     messages.value.push(data);
     iniciada = false;
   }catch(error){
@@ -72,7 +70,7 @@ const stopOperation = async () => {
 }
 
 const getOperation = async () => {
-  const { data } = await axios.get(`http://127.0.0.1:8000/operationdca/${route.params.name}`);
+  const { data } = await axios.get(`http://127.0.0.1:8000/operationict/${route.params.name}`);
   operationExist.value = data;
 }
 
@@ -93,12 +91,6 @@ onBeforeMount(() => {
         <textarea name="description" id="" cols="30" rows="5"  v-model="bot.description"></textarea>
         <label for="par">Par criptomoneda</label>
         <input type="text" name="par" id=""  v-model="bot.symbol">
-        <label for="amount">Cantidad</label>
-        <input type="number" name="amount" id=""  v-model="bot.amount">
-        <label for="condition">Condicion</label>
-        <input type="number" name="condition" id=""  v-model="bot.condition" step="any">
-        <label for="max_orders">Maximo de ordenes</label>
-        <input type="number" name="max_orders" id=""  v-model="bot.max_orders">
         <button @click="updateBot()">Guardar</button>
       </form>
     </section>

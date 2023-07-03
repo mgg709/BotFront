@@ -38,6 +38,16 @@
   color: #3777e1 !important; 
 }
 
+.bad-msg{
+  color: red;
+  margin: 5px;
+}
+
+.good-msg{
+  color: green;
+  margin: 5px;
+}
+
 /* Selector para la barra de desplazamiento en Google Chrome */
 /* ::-webkit-scrollbar {
   z-index: 1000;

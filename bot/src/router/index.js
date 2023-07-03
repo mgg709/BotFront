@@ -39,8 +39,18 @@ const routes= [
     },
     {
       path: "/dashboard/botdca/:name",
-      name: "botstats",
+      name: "botdcastats",
       component: () => import("../views/BotDcaStatsView.vue"),
+    },
+    {
+      path: "/dashboard/bothold/:name",
+      name: "botholdstats",
+      component: () => import("../views/BotHoldStatsView.vue"),
+    },
+    {
+      path: "/dashboard/botict/:name",
+      name: "botictstats",
+      component: () => import("../views/BotIctStatsView.vue"),
     }
   ]
 const router = createRouter({

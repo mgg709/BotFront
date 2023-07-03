@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from "vue";
+
+// @ts-ignore
 import NavBar from "../components/NavBar.vue";
 import axios from "axios";
+
 
 const name = ref("");
 const description = ref("");
@@ -13,7 +16,8 @@ const take_profit = ref(0);
 const stop_loss = ref(0);
 
 const bot = ref({});
-
+const message = ref("");
+const errorMessage = ref("");
 
 const createBot = async () => {
   bot.value = {
@@ -35,11 +39,14 @@ const createBot = async () => {
       },
     });
     console.log(data);
-  } catch (error){
-    console.log(error);
+    message.value = "Bot creado correctamente";
+  } catch (error) {
+    console.log(error.response.data);
+    errorMessage.value = error.response.data['detail'];
   }
   
 };
+// @ts-ignore
 </script>
 <template>
   <NavBar class="ajuste"></NavBar>
@@ -88,12 +95,10 @@ const createBot = async () => {
 
             <label for="max-orders">Nº Max. Órdenes</label>
             <input type="number" name="max-orders" id="max-orders" v-model="max_orders"/>
-            <label for="tp">Take profit</label>
-            <input type="number" name="tp" id="tp" v-model="take_profit"/>
-            <label for="sl">Stop loss</label>
-            <input type="number" name="sl" id="sl" v-model="stop_loss"/>
           </form>
         </div>
+        <span class="good-msg" v-if="message">{{ message }}</span>
+        <span class="bad-msg" v-if="message == ''">{{ errorMessage }}</span>
       </section>
     </div>
     <div class="button-submit-botdca">
@@ -187,6 +192,7 @@ const createBot = async () => {
   height: 20px;
   width: 250px;
   margin-bottom: 8px;
+  color: white;
 }
 
 .form-container form textarea {
@@ -195,6 +201,7 @@ const createBot = async () => {
   border: none;
   margin-bottom: 8px;
   resize: none;
+  color: white;
 }
 
 /* ¿Como funciona? */
@@ -271,6 +278,7 @@ const createBot = async () => {
   height: 20px;
   width: 250px;
   margin-bottom: 12px;
+  color: white;
 }
 
 

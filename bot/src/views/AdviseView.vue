@@ -147,6 +147,7 @@ function recomendar() {
   height: 20px;
   width: 250px;
   margin: 5px;
+  color: white;
 }
 #form-advise input::-webkit-outer-spin-button,
 #form-advise input::-webkit-inner-spin-button {

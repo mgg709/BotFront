@@ -9,6 +9,8 @@ const symbol = ref("");
 const amount = ref(0);
 const max_orders = ref(0);
 const frecuency = ref(0);
+const message = ref("");
+const errorMessage = ref("");
 
 const bot = ref({
   name: name.value,
@@ -27,10 +29,9 @@ const createBot = async () => {
   description: description.value,
   symbol: symbol.value,
   amount: amount.value,
-  frecuency: frecuency.value,
+  frecuency: (frecuency.value * 86400),
   max_orders: max_orders.value,
   };
-
   try {
     console.log(JSON.stringify(bot.value));
 
@@ -40,8 +41,10 @@ const createBot = async () => {
       },
     });
     console.log(data);
+    message.value = "Bot creado correctamente";
   } catch (error){
     console.log(error);
+    errorMessage.value = error.response.data['detail'];
   }
   
 };
@@ -83,7 +86,10 @@ const createBot = async () => {
               </div>
             </form>
           </div>
+          <span class="good-msg" v-if="message">{{ message }}</span>
+          <span class="bad-msg" v-if="message == ''">{{ errorMessage }}</span>
         </div>
+
         <div class="button-bothold">
           <input type="submit" value="Crear bot" @click="createBot"/>
         </div>
