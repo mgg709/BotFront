@@ -46,6 +46,7 @@ const createOperation = async () => {
     // @ts-ignore
     messages.value.push("Operacion creada");
     operation.value = data.value; 
+    operationExist.value = true;
   }catch(error){
     console.log(error);
   }
@@ -106,8 +107,8 @@ onBeforeMount(() => {
       <span> OPERACION </span>
       <div class="stats-control-buttons">
          <button class="create" @click="createOperation()" v-if="operationExist == false">CREAR</button>
-         <button class="start" @click="startOperation()" v-if="iniciada == false">INICIAR</button>
-         <button class="stop" @click="stopOperation()" v-if="iniciada == true">PARAR</button>
+         <button class="start" @click="startOperation()" v-if="iniciada == false && operationExist == true">INICIAR</button>
+         <button class="stop" @click="stopOperation()" v-if="iniciada == true && operationExist == true">PARAR</button>
       </div>
       <div class="stats-messages">
         <span> MENSAJES </span>
