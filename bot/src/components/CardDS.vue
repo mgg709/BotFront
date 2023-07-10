@@ -38,6 +38,25 @@ const getLastPrice = async () => {
   }
 }
 
+const deleteBot = async () => {
+  try {
+    let data;
+    if (props.type == "DCA") {
+      data = await axios.delete(`http://127.0.0.1:8000/botdca/${props.bot.name}`);
+      console.log(data);
+    } else if (props.type == "HOLD") {
+      data = await axios.delete(`http://127.0.0.1:8000/bothold/${props.bot.name}`);
+      console.log(data);
+    } else {
+      data = await axios.delete(`http://127.0.0.1:8000/botict/${props.bot.name}`);
+      console.log(data);
+    }
+    location.reload();
+  }catch(error) {
+    console.log(error);
+  }
+}
+
 onMounted(() => {
   getPrecio();
   getLastPrice();
@@ -65,7 +84,8 @@ onMounted(() => {
       <span class="label" id="label-3">Ordenes maximas</span>
       <span class="dato" id="dato-3">{{ bot.max_orders }}</span>
     </section>
-    <button class="close">ELIMINAR</button>
+    <button class="close" @click.prevent="deleteBot">ELIMINAR</button>
+    
   </div>
 </template>
 <style>

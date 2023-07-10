@@ -92,6 +92,7 @@ createBot()" />
   height: 95vh;
   top: 70px;
   position: relative;
+  padding-bottom: 20px;
 }
 
 /* titulo */
