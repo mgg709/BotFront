@@ -58,7 +58,7 @@ const createBot = async () => {
           <div class="guide-left-botict">
             <p>¿Cómo funciona?</p>
             <div class="guide-container-botict">
-              Este tipo de bot emplea la estrategia basada en indicadores. Esta estrategia está enfocada en el corto plazo y se encarga de enviar una señal al usuario. Como indicador se ha empleado las bandas de bollinger. Este indicador se encarga de medir la volatilidad del mercado. Cuando el precio de la criptomoneda se encuentra por encima de la banda superior, se considera que el mercado está sobrecomprado y se recomienda vender. Por el contrario, cuando el precio de la criptomoneda se encuentra por debajo de la banda inferior, se considera que el mercado está sobrevendido y se recomienda comprar. En este caso, se mandará una señal de compra cuando el precio toque la banda inferior.
+              Este tipo de bot utiliza una estrategia DCA, es decir, Dollar Cost Averaging. DCA implica dividir la cantidad de dinero a invertir en un número de compras, lo que permite aprovechar las fluctuaciones del mercado para adquirir más activos cuando los precios son bajos y menos activos cuando los precios son altos. Esta estrategia busca promediar el costo de adquisición a lo largo del tiempo, en lugar de intentar predecir los movimientos del mercado. De esta forma, la volatilidad de la inversión se reduce.
             </div>
           </div>
         </div>
@@ -193,6 +193,7 @@ createBot()" />
   overflow-y: auto;
   background: linear-gradient(to bottom, #363636, #141313);
   width: 75%;
+  height: 33vh;
   border: 1px solid #545353;
   border-radius: 5px;
   margin-bottom: 10px;

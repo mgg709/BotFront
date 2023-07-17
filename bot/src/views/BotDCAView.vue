@@ -219,6 +219,7 @@ const createBot = async () => {
   overflow-y: auto;
   background: linear-gradient(to bottom, #363636, #141313);
   width: 75%;
+  height: 33vh;
   border: 1px solid #545353;
   border-radius: 5px;
   margin-bottom: 10px;
