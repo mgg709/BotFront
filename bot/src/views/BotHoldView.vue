@@ -98,17 +98,8 @@ const createBot = async () => {
         <div class="function-bothold">
           <p>¿Cómo funciona?</p>
           <div class="function-description-hold">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente,
-            possimus. Rem, voluptates laboriosam eaque temporibus nesciunt,
-            impedit dolore optio qui nihil quod, ratione ipsam? Porro illo quasi
-            corrupti odio assumenda. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Maiores, alias consequatur? Molestias harum dolore
-            aperiam eius aut, laboriosam eligendi enim odit porro suscipit illo!
-            Dignissimos in quibusdam illo voluptas deserunt? nulla.
+            Este tipo de bot emplea la estrategia Hold. Esta se basa en realizar compras de forma recurrente en periodos de tiempo determinados por el usuario. De esta forma, se consigue un precio medio de compra de la criptomoneda, que se espera que sea mayor en el momento de la venta. El objetivo es mantener la inversión a largo plazo para aprovecharse de la subida progresiva, provocada por la ley de la oferta y la demanda.
           </div>
-        </div>
-        <div class="image-bothold">
-          <img src="" alt="" />
         </div>
       </section>
     </div>
@@ -308,8 +299,11 @@ const createBot = async () => {
 /* Sección derecha */
 
 .right-side-bothold {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   width: 45%;
-  height: 100%;
+  height: 60%;
   /* padding-left: 20px; */
 }
 
@@ -335,7 +329,6 @@ const createBot = async () => {
   overflow-y: auto;
   background: linear-gradient(to bottom, #363636, #141313);
   width: 70%;
-  height: 33vh;
   border: 1px solid #545353;
   border-radius: 5px;
   margin-bottom: 10px;

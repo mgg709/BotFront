@@ -76,12 +76,15 @@ const stopOperation = async () => {
 const getOperation = async () => {
   const { data } = await axios.get(`http://127.0.0.1:8000/operationhold/${route.params.name}`);
   operationExist.value = data;
-  console.log(operationExist);
+  if (operationExist.value != undefined) {
+    iniciada = true;
+  }
 }
 
 onBeforeMount(() => {
   getBot();
-  getOperation(); 
+  getOperation();
+  setInterval(getOperation,5*60*1000); 
 });
 
 </script>
