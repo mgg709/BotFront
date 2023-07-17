@@ -58,7 +58,8 @@ const createBot = async () => {
           <div class="guide-left-botict">
             <p>¿Cómo funciona?</p>
             <div class="guide-container-botict">
-              Esta estrategia emplea indicadores de mercado para determinar la dirección del precio y así abrir una posición de compra o venta. Es una estrategia a corto plazo y el indicador que se emplea son las Bandas de Bollinger. El bot se encargará de enviar una señal, pero será el usuario el que deberá determinar si efectuar la compra o no. El objetivo de esta estrategia es que cuando el precio toque la banda inferior, posteriormente tienda a subir. Por el contrario, cuando el precio toque la banda superior, posteriormente tienda a bajar.	
+              Este tipo de bot emplea la estrategia basada en indicadores. Esta estrategia está enfocada en el corto plazo y se encarga de enviar una señal al usuario. Como indicador se ha empleado las bandas de bollinger. Este indicador se encarga de medir la volatilidad del mercado. Cuando el precio de la criptomoneda se encuentra por encima de la banda superior, se considera que el mercado está sobrecomprado y se recomienda vender. Por el contrario, cuando el precio de la criptomoneda se encuentra por debajo de la banda inferior, se considera que el mercado está sobrevendido y se recomienda comprar. En este caso, se mandará una señal de compra cuando el precio toque la banda inferior.
+	
             </div>
           </div>
         </div>
@@ -193,7 +194,6 @@ createBot()" />
   overflow-y: auto;
   background: linear-gradient(to bottom, #363636, #141313);
   width: 75%;
-  height: 33vh;
   border: 1px solid #545353;
   border-radius: 5px;
   margin-bottom: 10px;
