@@ -98,17 +98,8 @@ const createBot = async () => {
         <div class="function-bothold">
           <p>¿Cómo funciona?</p>
           <div class="function-description-hold">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente,
-            possimus. Rem, voluptates laboriosam eaque temporibus nesciunt,
-            impedit dolore optio qui nihil quod, ratione ipsam? Porro illo quasi
-            corrupti odio assumenda. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Maiores, alias consequatur? Molestias harum dolore
-            aperiam eius aut, laboriosam eligendi enim odit porro suscipit illo!
-            Dignissimos in quibusdam illo voluptas deserunt? nulla.
+            Esta estrategia se emplea para realizar compras de forma recurrente a lo largo del tiempo. Se trata de una estrategia de inversión a largo plazo, en la que se realiza una compra periódica de una criptomoneda, independientemente de su precio. De esta forma, se consigue un precio medio de compra, que se espera que sea inferior al precio de mercado en el momento de la venta.
           </div>
-        </div>
-        <div class="image-bothold">
-          <img src="" alt="" />
         </div>
       </section>
     </div>

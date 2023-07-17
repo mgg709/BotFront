@@ -58,7 +58,7 @@ const createBot = async () => {
           <div class="guide-left-botict">
             <p>¿Cómo funciona?</p>
             <div class="guide-container-botict">
-              Este tipo de bot utiliza una estrategia DCA, es decir, Dollar Cost Averaging. DCA implica dividir la cantidad de dinero a invertir en un número de compras, lo que permite aprovechar las fluctuaciones del mercado para adquirir más activos cuando los precios son bajos y menos activos cuando los precios son altos. Esta estrategia busca promediar el costo de adquisición a lo largo del tiempo, en lugar de intentar predecir los movimientos del mercado. De esta forma, la volatilidad de la inversión se reduce.
+              Esta estrategia emplea indicadores de mercado para determinar la dirección del precio y así abrir una posición de compra o venta. Es una estrategia a corto plazo y el indicador que se emplea son las Bandas de Bollinger. El bot se encargará de enviar una señal, pero será el usuario el que deberá determinar si efectuar la compra o no. El objetivo de esta estrategia es que cuando el precio toque la banda inferior, posteriormente tienda a subir. Por el contrario, cuando el precio toque la banda superior, posteriormente tienda a bajar.	
             </div>
           </div>
         </div>
