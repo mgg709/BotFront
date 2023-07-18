@@ -75,6 +75,9 @@ const stopOperation = async () => {
 const getOperation = async () => {
   const { data } = await axios.get(`http://127.0.0.1:8000/operationdca/${route.params.name}`);
   operationExist.value = data;
+  if (operationExist.value != undefined) {
+    iniciada = true;
+  }
 }
 
 onBeforeMount(() => {
