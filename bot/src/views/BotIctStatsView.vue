@@ -10,8 +10,9 @@ const route = useRoute();
 const bot = ref({});
 const messages = ref([]);
 const operation = ref({});
-let iniciada = false;
+const iniciada = ref(false);
 const operationExist = ref(false);
+const parada = ref(false);
 
 const getBot = async () => {
   try {
@@ -44,7 +45,7 @@ const createOperation = async () => {
     console.log(data);
     messages.value.push("Operacion creada");
     operation.value = data.value; 
-    operationExist.value = true;
+    operationExist.value = true; 
   }catch(error){
     console.log(error);
   }
@@ -54,7 +55,7 @@ const startOperation = async () => {
   try {
     const { data } = await axios.post(`http://127.0.0.1:8000/operationict/start/${route.params.name}`);
     messages.value.push(data);
-    iniciada = true;
+    iniciada.value = true; 
   }catch(error){
     console.log(error);
   }
@@ -64,8 +65,10 @@ const stopOperation = async () => {
   try {
     const { data } = await axios.post(`http://127.0.0.1:8000/operationict/stop/${route.params.name}`);
     messages.value.push(data);
-    iniciada = false;
-  }catch(error){
+    iniciada.value = false;
+    parada.value = true;
+  } catch (error) {
+    messages.value.push(error.response.data["detail"]);
     console.log(error);
   }
 }
@@ -73,15 +76,11 @@ const stopOperation = async () => {
 const getOperation = async () => {
   const { data } = await axios.get(`http://127.0.0.1:8000/operationict/${route.params.name}`);
   operationExist.value = data;
-  if (operationExist.value != undefined) {
-    iniciada = true;
-  }
 }
 
 onBeforeMount(() => {
   getBot();
   getOperation();
-  setInterval(getOperation, 1 * 60 * 1000);
 });
 
 </script>
@@ -104,7 +103,7 @@ onBeforeMount(() => {
       <div class="stats-control-buttons">
          <button class="create" @click="createOperation()" v-if="operationExist == false">CREAR</button>
          <button class="start" @click="startOperation()" v-if="iniciada == false && operationExist == true">INICIAR</button>
-         <button class="stop" @click="stopOperation()" v-if="iniciada == true && operationExist == true">PARAR</button>
+         <button class="stop" @click="stopOperation()" v-if="(iniciada == true && operationExist == true) || (parada == false)">PARAR</button>
       </div>
       <div class="stats-messages">
         <span> MENSAJES </span>
