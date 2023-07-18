@@ -110,9 +110,9 @@ onBeforeMount(() => {
     <section class="stats-bot">
       <span> OPERACION </span>
       <div class="stats-control-buttons">
-         <button class="create" @click="createOperation()" v-if="created == false && operationExist == false">CREAR</button>
+         <button class="create" @click="createOperation()" v-if="operationExist == false">CREAR</button>
          <button class="start" @click="startOperation()" v-if="iniciada == false && operationExist == true">INICIAR</button>
-         <button class="stop" @click="stopOperation()" v-if="(iniciada == true && operationExist == true) || (parada == false)">PARAR</button>
+         <button class="stop" @click="stopOperation()" v-if="(iniciada == true && operationExist == true) ||  (parada == false && operationExist == true)">PARAR</button>
       </div>
       <div class="stats-messages">
         <span> MENSAJES </span>
