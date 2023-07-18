@@ -78,6 +78,7 @@ const getOperation = async () => {
 onBeforeMount(() => {
   getBot();
   getOperation();
+  setInterval(getOperation, 1 * 60 * 1000);
 });
 
 </script>
